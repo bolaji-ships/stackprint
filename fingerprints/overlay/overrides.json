@@ -38,6 +38,12 @@
           "linear-domain-verification="
         ]
       }
+    },
+    "RequireJS": {
+      "_why": "'require.*\\.js' (case-insensitive) matched any script starting with 'require', e.g. Vite chunk 'Required-C-UWJqQr.js' on railway.com. Replaced by a filename rule in corrections.json.",
+      "scriptSrc": [
+        "require.*\\.js"
+      ]
     }
   }
 }

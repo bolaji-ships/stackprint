@@ -240,3 +240,17 @@ describe("engine DNS rules after overrides", () => {
     expect(found).not.toContain("JobberBase");
   });
 });
+
+describe("RequireJS rule (overlay)", () => {
+  const engine = createEngine(loadPack());
+  const found = (url: string) =>
+    engine
+      .analyze({ scriptSrc: [{ value: url, via: "static" }] })
+      .some((d) => d.name === "RequireJS");
+
+  it("matches require.js itself, not files that merely start with 'require'", () => {
+    expect(found("https://cdn.example.com/js/require.min.js")).toBe(true);
+    expect(found("https://cdn.example.com/require-2.3.6.js?v=1")).toBe(true);
+    expect(found("https://railway.com/assets/Required-C-UWJqQr.js")).toBe(false);
+  });
+});

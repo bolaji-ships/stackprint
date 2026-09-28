@@ -17,5 +17,10 @@
         "linear-domain-verification="
       ]
     }
+  },
+  "RequireJS": {
+    "scriptSrc": [
+      "(?:^|/)require(?:[.-][\\d.]+)?(?:\\.min)?\\.js(?:[?#]|$)"
+    ]
   }
 }
