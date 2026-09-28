@@ -1,0 +1,37 @@
+{
+  "_comment": "Fast-mode rules from vendors' own loader snippets. Upstream only matches the scripts these loaders fetch at runtime, so fast mode missed them (benchmark 2026-09-28: Clarity 0/43, TikTok 0/6).",
+  "Microsoft Clarity": {
+    "scriptSrc": [
+      "clarity\\.ms\\/tag\\/"
+    ],
+    "scripts": [
+      "[\"']clarity[\"'],\\s*[\"']script[\"']"
+    ]
+  },
+  "TikTok Pixel": {
+    "scriptSrc": [
+      "analytics\\.tiktok\\.com\\/i18n\\/pixel\\/events\\.js"
+    ],
+    "scripts": [
+      "ttq\\.load\\("
+    ]
+  },
+  "HubSpot Analytics": {
+    "scriptSrc": [
+      "js(?:-[a-z]{2}\\d)?\\.hs-scripts\\.com\\/\\d+\\.js"
+    ]
+  },
+  "Intercom": {
+    "scriptSrc": [
+      "widget\\.intercom\\.io\\/widget\\/"
+    ],
+    "scripts": [
+      "intercomSettings"
+    ]
+  },
+  "Segment": {
+    "scripts": [
+      "analytics\\.SNIPPET_VERSION"
+    ]
+  }
+}

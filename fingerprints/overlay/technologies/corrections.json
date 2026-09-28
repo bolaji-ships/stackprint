@@ -1,0 +1,21 @@
+{
+  "_comment": "Additions to existing upstream technologies (merged in). New technologies live in the other files.",
+  "Wix": {
+    "excludes": [
+      "WebsiteBuilder"
+    ]
+  },
+  "Linear App": {
+    "cats": [
+      13
+    ],
+    "website": "https://linear.app",
+    "description": "Linear is an issue tracking and project planning tool for software teams.",
+    "saas": true,
+    "dns": {
+      "TXT": [
+        "linear-domain-verification="
+      ]
+    }
+  }
+}

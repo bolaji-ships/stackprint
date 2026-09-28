@@ -1,0 +1,55 @@
+{
+  "_comment": "Email and DNS rules missing or incomplete upstream. Merged into existing technologies where the name exists.",
+  "Google Workspace": { "dns": { "MX": ["^smtp\\.google\\.com$"] } },
+  "Microsoft 365": { "dns": { "MX": ["\\.mx\\.microsoft$"] } },
+  "Zoho Mail": {
+    "dns": {
+      "MX": ["(?:^|\\.)mx\\d{0,2}\\.zoho(?:mail)?\\.(?:com|eu|in|com\\.au|jp|com\\.cn|sa)$"],
+      "TXT": ["include:zoho(?:mail)?\\.(?:com|eu|in)\\b"]
+    }
+  },
+  "ZeptoMail": {
+    "cats": [75],
+    "website": "https://www.zoho.com/zeptomail/",
+    "description": "ZeptoMail is Zoho's transactional email service.",
+    "saas": true,
+    "dns": { "TXT": ["transmail\\.net"] }
+  },
+  "MailChimp": { "dns": { "TXT": ["servers\\.mcsv\\.net"] } },
+  "Sendinblue": { "dns": { "TXT": ["spf\\.(?:sendinblue|brevo)\\.com"] } },
+  "Postmark": {
+    "cats": [75],
+    "website": "https://postmarkapp.com",
+    "description": "Postmark is a transactional email delivery service.",
+    "saas": true,
+    "dns": { "TXT": ["spf\\.mtasv\\.net"] }
+  },
+  "Proofpoint": {
+    "cats": [16, 75],
+    "website": "https://www.proofpoint.com",
+    "description": "Proofpoint is an email security gateway that sits in front of a mailbox provider.",
+    "saas": true,
+    "dns": { "MX": ["\\.pphosted\\.com$", "\\.ppe-hosted\\.com$"] }
+  },
+  "Mimecast": {
+    "cats": [16, 75],
+    "website": "https://www.mimecast.com",
+    "description": "Mimecast is an email security gateway that sits in front of a mailbox provider.",
+    "saas": true,
+    "dns": { "MX": ["\\.mimecast\\.(?:com|co\\.za)$"] }
+  },
+  "Barracuda Email Protection": {
+    "cats": [16, 75],
+    "website": "https://www.barracuda.com/products/email-protection",
+    "description": "Barracuda Email Protection is an email security gateway.",
+    "saas": true,
+    "dns": { "MX": ["\\.barracudanetworks\\.com$"] }
+  },
+  "Namecheap": {
+    "cats": [88],
+    "website": "https://www.namecheap.com",
+    "description": "Namecheap is a domain registrar and web host.",
+    "saas": true,
+    "dns": { "NS": ["registrar-servers\\.com$"], "SOA": ["registrar-servers\\.com"] }
+  }
+}

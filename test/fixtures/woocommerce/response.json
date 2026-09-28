@@ -1,0 +1,68 @@
+{
+  "url": "https://woocommerce.com/",
+  "status": 200,
+  "headers": {
+    "accept-ranges": [
+      "bytes"
+    ],
+    "cache-control": [
+      "public, max-age=300, must-revalidate, s-maxage=43200"
+    ],
+    "connection": [
+      "keep-alive"
+    ],
+    "content-encoding": [
+      "br"
+    ],
+    "content-security-policy": [
+      "upgrade-insecure-requests"
+    ],
+    "content-type": [
+      "text/html; charset=UTF-8"
+    ],
+    "date": [
+      "Mon, 28 Sep 2026 01:38:00 GMT"
+    ],
+    "host-header": [
+      "a9130478a60e5f9135f765b23f26593b"
+    ],
+    "link": [
+      "<https://woocommerce.com/wp-json/>; rel=\"https://api.w.org/\", <https://woocommerce.com/wp-json/wp/v2/pages/18734001744472>; rel=\"alternate\"; title=\"JSON\"; type=\"application/json\", <https://woocommerce.com/>; rel=shortlink"
+    ],
+    "referrer-policy": [
+      "strict-origin-when-cross-origin"
+    ],
+    "server": [
+      "nginx"
+    ],
+    "strict-transport-security": [
+      "max-age=31536000;includeSubdomains"
+    ],
+    "transfer-encoding": [
+      "chunked"
+    ],
+    "vary": [
+      "Accept-Encoding, accept, content-type"
+    ],
+    "x-cache": [
+      "HIT"
+    ],
+    "x-content-type-options": [
+      "nosniff"
+    ],
+    "x-frame-options": [
+      "SAMEORIGIN"
+    ],
+    "x-hacker": [
+      "If you're reading this, you should visit https://join.a8c.com/viphacker and apply to join the fun, mention this header."
+    ],
+    "x-powered-by": [
+      "WordPress VIP <https://wpvip.com>"
+    ],
+    "x-rq": [
+      "lhr2 0 40 9980"
+    ]
+  },
+  "setCookies": [],
+  "captured_at": "2026-09-28T01:38:00.228Z"
+}

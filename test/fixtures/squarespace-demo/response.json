@@ -1,0 +1,49 @@
+{
+  "url": "https://bedford-demo.squarespace.com/",
+  "status": 200,
+  "headers": {
+    "accept-ranges": [
+      "bytes"
+    ],
+    "age": [
+      "26512"
+    ],
+    "content-encoding": [
+      "gzip"
+    ],
+    "content-length": [
+      "19228"
+    ],
+    "content-type": [
+      "text/html;charset=utf-8"
+    ],
+    "date": [
+      "Sun, 27 Sep 2026 18:06:01 GMT"
+    ],
+    "etag": [
+      "W/\"8df8677775d6a6a497480d1d720aec8b\""
+    ],
+    "expires": [
+      "Thu, 01 Jan 1970 00:00:00 GMT"
+    ],
+    "server": [
+      "Squarespace"
+    ],
+    "strict-transport-security": [
+      "max-age=0"
+    ],
+    "vary": [
+      "Accept-Encoding"
+    ],
+    "x-content-type-options": [
+      "nosniff"
+    ],
+    "x-contextid": [
+      "V7cI9zG9/LmOdsuFk"
+    ]
+  },
+  "setCookies": [
+    "crumb=Ba59CPL13ZsjYWVkYjE2Y2JjM2U2YzBkZTYyMDIzMDZkZWIxMTY0;Secure;Path=/"
+  ],
+  "captured_at": "2026-09-28T01:38:04.315Z"
+}

@@ -1,0 +1,76 @@
+{
+  "name": "stackprint",
+  "version": "0.1.0",
+  "description": "Open-source website technology detection. Give it a URL, get the CMS, ecommerce platform, analytics, ad pixels, CRM, email provider and more, with evidence.",
+  "license": "AGPL-3.0-or-later",
+  "type": "module",
+  "bin": {
+    "stackprint": "./dist/cli/index.js"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./core": {
+      "types": "./dist/core/index.d.ts",
+      "import": "./dist/core/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "fingerprints",
+    "LICENSE",
+    "THIRD_PARTY_NOTICES.md",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "dev": "tsx src/cli/index.ts",
+    "test": "vitest run",
+    "test:live": "STACKPRINT_LIVE=1 vitest run test/live",
+    "lint": "biome check .",
+    "lint:fix": "biome check --write .",
+    "fingerprints:update": "tsx scripts/fingerprints-update.ts",
+    "bench": "tsx bench/prospeo.ts"
+  },
+  "engines": {
+    "node": ">=22.12"
+  },
+  "keywords": [
+    "wappalyzer",
+    "builtwith",
+    "technographics",
+    "tech-stack",
+    "website-technology",
+    "fingerprinting",
+    "gtm",
+    "enrichment"
+  ],
+  "dependencies": {
+    "@hono/node-server": "^2.1.1",
+    "better-sqlite3": "^13.0.3",
+    "cheerio": "^1.2.0",
+    "commander": "^15.0.0",
+    "css-select": "^5.2.2",
+    "csv-parse": "^7.0.3",
+    "csv-stringify": "^6.9.0",
+    "domhandler": "^5.0.3",
+    "hono": "^4.13.9",
+    "playwright": "^1.63.0",
+    "tldts": "^7.4.16",
+    "undici": "^8.11.2",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.5.14",
+    "@types/better-sqlite3": "^9.6.0",
+    "@types/node": "^22.20.4",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.2"
+  }
+}

@@ -1,0 +1,229 @@
+{
+  "_comment": "Mailbox providers and security gateways by MX host, providers and sending tools by SPF include, DMARC report vendors by rua domain. Patterns are regexes against lowercase hosts.",
+  "providers": [
+    [
+      "Google Workspace",
+      "(?:^|\\.)aspmx\\.l\\.google\\.com$|\\.googlemail\\.com$|^smtp\\.google\\.com$"
+    ],
+    [
+      "Microsoft 365",
+      "\\.mail\\.protection\\.outlook\\.com$|\\.mx\\.microsoft$"
+    ],
+    [
+      "Zoho Mail",
+      "(?:^|\\.)mx\\d{0,2}\\.zoho(?:mail)?\\.(?:com|eu|in|com\\.au|jp|com\\.cn|sa)$"
+    ],
+    [
+      "Proton Mail",
+      "(?:^|\\.)mail(?:sec)?\\.protonmail\\.ch$"
+    ],
+    [
+      "Fastmail",
+      "\\.messagingengine\\.com$"
+    ],
+    [
+      "iCloud Mail",
+      "\\.mail\\.icloud\\.com$"
+    ],
+    [
+      "Yandex Mail",
+      "(?:^|\\.)mx\\.yandex\\.(?:net|ru)$"
+    ],
+    [
+      "GoDaddy Email",
+      "\\.secureserver\\.net$"
+    ],
+    [
+      "Namecheap Private Email",
+      "\\.privateemail\\.com$"
+    ],
+    [
+      "Titan Email",
+      "\\.titan\\.email$"
+    ],
+    [
+      "Hostinger Email",
+      "\\.hostinger\\.(?:com|io)$"
+    ],
+    [
+      "Rackspace Email",
+      "\\.emailsrvr\\.com$"
+    ],
+    [
+      "Amazon SES (inbound)",
+      "^inbound-smtp\\.[a-z0-9-]+\\.amazonaws\\.com$"
+    ],
+    [
+      "IONOS Mail",
+      "\\.ionos\\.(?:com|de|co\\.uk|es|fr)$|\\.1and1\\.(?:com|de|co\\.uk)$"
+    ],
+    [
+      "Namecheap Email Forwarding",
+      "\\.registrar-servers\\.com$"
+    ],
+    [
+      "Cloudflare Email Routing",
+      "\\.mx\\.cloudflare\\.net$"
+    ],
+    [
+      "ImprovMX",
+      "\\.improvmx\\.com$"
+    ],
+    [
+      "Migadu",
+      "\\.migadu\\.com$"
+    ],
+    [
+      "Mailgun Routes",
+      "\\.mailgun\\.org$"
+    ],
+    [
+      "Intermedia",
+      "\\.serverdata\\.net$"
+    ],
+    [
+      "OpenSRS Hosted Email",
+      "\\.hostedemail\\.com$"
+    ]
+  ],
+  "gateways": [
+    [
+      "Proofpoint",
+      "\\.pphosted\\.com$|\\.ppe-hosted\\.com$"
+    ],
+    [
+      "Mimecast",
+      "\\.mimecast\\.(?:com|co\\.za)$"
+    ],
+    [
+      "Barracuda Email Protection",
+      "\\.barracudanetworks\\.com$"
+    ],
+    [
+      "Cisco Secure Email",
+      "\\.iphmx\\.com$"
+    ],
+    [
+      "Trend Micro Email Security",
+      "\\.tmes\\.trendmicro\\.(?:com|eu)$"
+    ],
+    [
+      "Sophos Email",
+      "\\.hydra\\.sophos\\.com$"
+    ],
+    [
+      "Forcepoint Email Security",
+      "\\.mailcontrol\\.com$"
+    ],
+    [
+      "Broadcom Email Security",
+      "\\.messagelabs\\.com$"
+    ],
+    [
+      "Hornetsecurity",
+      "\\.hornetsecurity\\.com$"
+    ],
+    [
+      "SpamTitan",
+      "\\.spamtitan\\.com$"
+    ],
+    [
+      "Mailprotector",
+      "\\.mailprotector\\.net$"
+    ],
+    [
+      "N-able Mail Assure",
+      "\\.mtaroutes\\.com$"
+    ],
+    [
+      "Zix",
+      "\\.zixmail\\.net$|\\.appriver\\.com$|\\.arsmtp\\.com$"
+    ],
+    [
+      "MailRoute",
+      "\\.mailroute\\.net$"
+    ],
+    [
+      "SpamExperts",
+      "\\.antispamcloud\\.com$|\\.spamexperts\\.(?:com|net|eu)$"
+    ]
+  ],
+  "spf_providers": {
+    "spf.protection.outlook.com": "Microsoft 365",
+    "_spf.google.com": "Google Workspace",
+    "zoho.com": "Zoho Mail",
+    "zoho.eu": "Zoho Mail",
+    "zoho.in": "Zoho Mail",
+    "zohomail.com": "Zoho Mail",
+    "_spf.protonmail.ch": "Proton Mail",
+    "spf.messagingengine.com": "Fastmail",
+    "icloud.com": "iCloud Mail",
+    "secureserver.net": "GoDaddy Email",
+    "spf.privateemail.com": "Namecheap Private Email",
+    "spf.titan.email": "Titan Email",
+    "_spf.mail.hostinger.com": "Hostinger Email",
+    "emailsrvr.com": "Rackspace Email",
+    "spf.web-hosting.com": "Namecheap cPanel Mail",
+    "websitewelcome.com": "HostGator Mail",
+    "bluehost.com": "Bluehost Mail"
+  },
+  "spf_senders": {
+    "sendgrid.net": "SendGrid",
+    "mailgun.org": "Mailgun",
+    "servers.mcsv.net": "Mailchimp",
+    "spf.mandrillapp.com": "Mailchimp Transactional",
+    "mandrillapp.com": "Mailchimp Transactional",
+    "spf.mtasv.net": "Postmark",
+    "amazonses.com": "Amazon SES",
+    "sparkpostmail.com": "SparkPost",
+    "spf.sendinblue.com": "Brevo",
+    "spf.brevo.com": "Brevo",
+    "hubspotemail.net": "HubSpot",
+    "_spf.salesforce.com": "Salesforce",
+    "mktomail.com": "Marketo",
+    "aspmx.pardot.com": "Pardot",
+    "mail.zendesk.com": "Zendesk",
+    "email.freshdesk.com": "Freshdesk",
+    "helpscoutemail.com": "Help Scout",
+    "spf.mailjet.com": "Mailjet",
+    "spf.constantcontact.com": "Constant Contact",
+    "emsd1.com": "ActiveCampaign",
+    "zcsend.net": "Zoho Campaigns",
+    "transmail.net": "ZeptoMail",
+    "_spf.mlsend.com": "MailerLite",
+    "customeriomail.com": "Customer.io",
+    "_spf.createsend.com": "Campaign Monitor",
+    "spf.smtp2go.com": "SMTP2GO",
+    "_spf.shopify.com": "Shopify Email",
+    "shops.shopify.com": "Shopify Email",
+    "_spf.qualtrics.com": "Qualtrics",
+    "mail.intercom.io": "Intercom",
+    "_spf.klaviyo.com": "Klaviyo",
+    "spf.klaviyo.com": "Klaviyo"
+  },
+  "dmarc_vendors": {
+    "dmarcian.com": "dmarcian",
+    "vali.email": "Valimail",
+    "valimail.com": "Valimail",
+    "easydmarc.com": "EasyDMARC",
+    "easydmarc.us": "EasyDMARC",
+    "agari.com": "Agari",
+    "emaildefense.proofpoint.com": "Proofpoint",
+    "mimecast.com": "Mimecast",
+    "ondmarc.com": "Red Sift OnDMARC",
+    "redsift.cloud": "Red Sift OnDMARC",
+    "uriports.com": "URIports",
+    "dmarc.postmarkapp.com": "Postmark",
+    "dmarcadvisor.com": "DMARC Advisor",
+    "powerdmarc.com": "PowerDMARC",
+    "fraudmarc.com": "Fraudmarc",
+    "250ok.net": "Validity",
+    "everest.email": "Validity",
+    "dmarc-reports.cloudflare.net": "Cloudflare",
+    "mxtoolbox.com": "MxToolbox",
+    "sendmarc.com": "Sendmarc",
+    "dmarcly.com": "DMARCLY",
+    "glockapps.com": "GlockApps",
+    "rua.agari.com": "Agari"
+  }
+}

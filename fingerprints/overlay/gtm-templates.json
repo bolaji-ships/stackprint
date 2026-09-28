@@ -1,0 +1,11 @@
+{
+  "_comment": "Built-in Google Tag Manager tag types -> technology. Only applied when the container is read (fast mode) and the technology exists. Custom templates (cvt_...) are container-specific and are covered by the vendor URLs they load.",
+  "__awct": "Google Ads Conversion Tracking",
+  "__sp": "Google Ads Conversion Tracking",
+  "__gaawc": "Google Analytics",
+  "__gaawe": "Google Analytics",
+  "__ua": "Google Analytics",
+  "__baut": "Microsoft Advertising",
+  "__hjtc": "Hotjar",
+  "__crto": "Criteo"
+}

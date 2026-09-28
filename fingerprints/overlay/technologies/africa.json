@@ -1,0 +1,71 @@
+{
+  "_comment": "African payments and commerce, missing upstream.",
+  "Paystack": {
+    "cats": [41],
+    "website": "https://paystack.com",
+    "description": "Paystack is a payments platform for businesses in Africa.",
+    "saas": true,
+    "pricing": ["payg"],
+    "scriptSrc": ["js\\.paystack\\.co\\/", "\\/wp-content\\/plugins\\/woo-paystack\\/"],
+    "scripts": ["PaystackPop\\.setup"],
+    "js": { "PaystackPop": "" },
+    "dom": ["a[href*='paystack.com/pay/']", "a[href*='paystack.shop/']", "form[action*='paystack.com']"]
+  },
+  "Flutterwave": {
+    "cats": [41],
+    "website": "https://flutterwave.com",
+    "description": "Flutterwave is a payments platform for businesses in Africa.",
+    "saas": true,
+    "pricing": ["payg"],
+    "scriptSrc": [
+      "checkout\\.flutterwave\\.com",
+      "api\\.ravepay\\.co",
+      "\\/wp-content\\/plugins\\/(?:rave-woocommerce-payment-gateway|flutterwave-payments|woo-rave)\\/"
+    ],
+    "scripts": ["FlutterwaveCheckout\\("],
+    "js": { "FlutterwaveCheckout": "" },
+    "dom": ["a[href*='flutterwave.com/pay/']", "a[href*='flutterwave.com/store/']"]
+  },
+  "Monnify": {
+    "cats": [41],
+    "website": "https://monnify.com",
+    "description": "Monnify is a Nigerian payment gateway by Moniepoint.",
+    "saas": true,
+    "scriptSrc": ["sdk\\.monnify\\.com"],
+    "scripts": ["MonnifySDK\\.initialize"],
+    "js": { "MonnifySDK": "" }
+  },
+  "Interswitch": {
+    "cats": [41],
+    "website": "https://www.interswitchgroup.com",
+    "description": "Interswitch is a Nigerian payments company (Webpay / Quickteller checkout).",
+    "saas": true,
+    "scriptSrc": ["(?:new)?webpay\\.interswitchng\\.com"],
+    "dom": ["form[action*='interswitchng.com']"]
+  },
+  "Selar": {
+    "cats": [6],
+    "website": "https://selar.com",
+    "description": "Selar lets African creators sell digital and physical products.",
+    "saas": true,
+    "scriptSrc": ["selar\\.co\\/"],
+    "dom": ["a[href*='selar.co/']", "iframe[src*='selar.co/']"]
+  },
+  "Bumpa": {
+    "cats": [6],
+    "website": "https://getbumpa.com",
+    "description": "Bumpa is a Nigerian commerce app with hosted storefronts.",
+    "saas": true,
+    "url": ["\\.bumpa\\.shop"],
+    "dom": ["a[href*='bumpa.shop']", "a[href*='getbumpa.com']"]
+  },
+  "Olitt": {
+    "cats": [51],
+    "website": "https://www.olitt.com",
+    "description": "Olitt is a website builder popular in Africa.",
+    "saas": true,
+    "url": ["\\.olitt\\.(?:io|com)"],
+    "scriptSrc": ["olitt\\.(?:io|com)\\/"],
+    "meta": { "generator": "Olitt" }
+  }
+}

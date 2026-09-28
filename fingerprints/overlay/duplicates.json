@@ -1,0 +1,11 @@
+{
+  "_comment": "Upstream entries that are the same product under two spellings (same website). The duplicate's patterns are merged into the canonical name and references are rewritten. Without this, both collide on the same slug.",
+  "Fastspring": "FastSpring",
+  "framework7": "Framework7",
+  "Litespeed Cache": "LiteSpeed Cache",
+  "mOxie": "Moxie",
+  "Publive": "PubLive",
+  "spin.js": "Spin.js",
+  "timeago": "Timeago",
+  "Websocket": "WebSocket"
+}

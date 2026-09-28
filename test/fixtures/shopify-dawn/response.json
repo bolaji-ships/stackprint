@@ -1,0 +1,104 @@
+{
+  "url": "https://theme-dawn-demo.myshopify.com/",
+  "status": 200,
+  "headers": {
+    "accept-ch": [
+      "Sec-CH-Viewport-Width"
+    ],
+    "alt-svc": [
+      "h3=\":443\"; ma=86400"
+    ],
+    "cdn-cache-control": [
+      "no-cache, no-store"
+    ],
+    "cf-cache-status": [
+      "DYNAMIC"
+    ],
+    "cf-ray": [
+      "a41f06b43b229421-LHR"
+    ],
+    "connection": [
+      "keep-alive"
+    ],
+    "content-encoding": [
+      "br"
+    ],
+    "content-language": [
+      "en-CA"
+    ],
+    "content-length": [
+      "34333"
+    ],
+    "content-security-policy": [
+      "block-all-mixed-content; frame-ancestors *; upgrade-insecure-requests;"
+    ],
+    "content-type": [
+      "text/html; charset=utf-8"
+    ],
+    "date": [
+      "Mon, 28 Sep 2026 01:38:01 GMT"
+    ],
+    "etag": [
+      "\"page_cache:55192420441:IndexController:7403f040c7c8a3e9bd0dcb7b72e3fbeb:e55b6a140cfa9b43b796a6ddf55bd852\""
+    ],
+    "link": [
+      "<https://cdn.shopify.com>; rel=\"preconnect\", <https://cdn.shopify.com>; rel=\"preconnect\"; crossorigin, <//theme-dawn-demo.myshopify.com/cdn/shop/t/53/assets/base.css?v=144968985024194912401720118919>; as=\"style\"; rel=\"preload\", <//theme-dawn-demo.myshopify.com/cdn/shop/t/53/assets/component-localization-form.css?v=120620094879297847921720118919>; as=\"style\"; rel=\"preload\", <//theme-dawn-demo.myshopify.com/cdn/shop/files/Dawn_logo.png?v=1637111732&width=600>; as=\"image\"; rel=\"preload\"; imagesrcset=\"//theme-dawn-demo.myshopify.com/cdn/shop/files/Dawn_logo.png?v=1637111732&width=90 90w, //theme-dawn-demo.myshopify.com/cdn/shop/files/Dawn_logo.png?v=1637111732&width=135 135w, //theme-dawn-demo.myshopify.com/cdn/shop/files/Dawn_logo.png?v=1637111732&width=180 180w\"; imagesizes=\"(max-width: 180px) 50vw, 90px\", </.well-known/ucp>; rel=\"ucp\"; version=\"2026-08-25\""
+    ],
+    "nel": [
+      "{\"report_to\":\"cf-nel\",\"success_fraction\":0.01,\"max_age\":604800}"
+    ],
+    "powered-by": [
+      "Shopify"
+    ],
+    "report-to": [
+      "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=1hWwTB%2Fph%2BVz2DbbJOPDeFTw9zNf5mfj6JMDaTSmN4amYceRaAEPs8TXjpzXjBkkhB6FA3hYq%2F%2Fa5GidadfrAoMUGyP6oJpDffRwmo%2FNFppVdgyuGTYGmHaLLpAEOjDbI%2BRlQcO2mMiex6fNTy8t\"}]}"
+    ],
+    "server": [
+      "cloudflare"
+    ],
+    "server-timing": [
+      "processing;dur=33;desc=\"gc:1\", db;dur=6, db_async;dur=3.001, asn;desc=\"329267\", edge;desc=\"LHR\", country;desc=\"NG\", theme;desc=\"129690763353\", pageType;desc=\"index\", servedBy;desc=\"5ml7\", requestID;desc=\"6e701d9d-708a-46b2-8d20-912e1eec7613-1790559480\", _y;desc=\"771b90e8-3a0c-427e-97fd-af8bb7d0f6f1\", _s;desc=\"901a6857-c914-4cdf-8faf-2b53e971823a\", _cmp;desc=\"3.AMPS_NGLA_f_f_*oTITobnSFumXUvZGW8rAA\", _cta;desc=\"1\", _ye;desc=\"1822117081\", _se;desc=\"1790561281\", compressionLevel;desc=\"5\""
+    ],
+    "shopify-complexity-score": [
+      "0"
+    ],
+    "shopify-complexity-score-v2": [
+      "26"
+    ],
+    "speculation-rules": [
+      "\"/cdn/shopifycloud/storefront/assets/storefront/storefronts.moderate.specrules-eb468f32.json\""
+    ],
+    "strict-transport-security": [
+      "max-age=7889238"
+    ],
+    "vary": [
+      "Accept, accept-encoding"
+    ],
+    "x-content-type-options": [
+      "nosniff"
+    ],
+    "x-dc": [
+      "gcp-europe-west1,gcp-europe-west1,gcp-europe-west1"
+    ],
+    "x-download-options": [
+      "noopen"
+    ],
+    "x-permitted-cross-domain-policies": [
+      "none"
+    ],
+    "x-request-id": [
+      "6e701d9d-708a-46b2-8d20-912e1eec7613-1790559480"
+    ],
+    "x-xss-protection": [
+      "1; mode=block"
+    ]
+  },
+  "setCookies": [
+    "localization=CA; path=/; expires=Tue, 28 Sep 2027 01:38:01 GMT",
+    "cart_currency=CAD; path=/; expires=Mon, 12 Oct 2026 01:38:01 GMT",
+    "_shopify_essential=:AaDlqWzJAAEA5VvJb_mVOmXvolK4evgJpfDOyZbU7bOT4hrhERwWVYxaRqb7KiPIImSEZtMy_maCxhlEg2Ls031c4_T5eaGLqO15xTKri0EWg0q7uSQQB3zDPkKB_6D6g397MNi_IF5yH78umRgUQazS1BUKPs0jJHmEEVk9IeejSne2aaLbr9ZFR_9d8IS5JebGxYuqlN0b6bd9fz3MKt5eD_9km5Hm1OD8eQdAvhpvy13oO5_vMgIGgg1voSgXSvgcF1gQp7Ch2kMtrGtR5L790ZTwjZ-vk4rfIvMnsBH0xL1z55fHnG5wqHxuAzH1y_UL1rbXAJ5N6H9idULyAE2Y8VxH:; Max-Age=31536000; Path=/; HttpOnly; Secure; Priority=High; SameSite=None",
+    "_shopify_analytics=:AaDlqWzeAAEAZ8C4PBshcBwG69vO46fwF0kYYnz3ExYpGO-QgreMuvApd4F5VMTWFPiCBAGq2RcAU3CXUe7aw41n98tyJvW3jeve3_2XFSLzf9JWGjNzkQoAAoB1l_Xj5M-fy-J1s8KpZqfsw8fCBEvfZRE:; Max-Age=31536000; Path=/; HttpOnly; Secure; Priority=High; SameSite=None",
+    "_shopify_marketing=:AaDlqWzfAAEAoL_yK1Uv4Vw5l3_fmRaue0Dft_nGaxXoMGroNYmgqFBvcPwu55pesW3P7hnYY1r1kOVxpd5dwENjq_BgjAuXsIetLecbuz03BrCuwVDWhmse0Wl8ilGJAHEiHAw2oWavq-jQGW9Fr3W0SV4:; Max-Age=31536000; Path=/; HttpOnly; Secure; Priority=High; SameSite=None"
+  ],
+  "captured_at": "2026-09-28T01:38:01.090Z"
+}

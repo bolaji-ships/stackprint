@@ -1,0 +1,87 @@
+{
+  "url": "https://www.wix.com/",
+  "status": 200,
+  "headers": {
+    "accept-ranges": [
+      "bytes"
+    ],
+    "age": [
+      "318615"
+    ],
+    "alt-svc": [
+      "h3=\":443\"; ma=2592000"
+    ],
+    "cache-control": [
+      "public,max-age=0,must-revalidate"
+    ],
+    "content-encoding": [
+      "br"
+    ],
+    "content-language": [
+      "en"
+    ],
+    "content-length": [
+      "304967"
+    ],
+    "content-type": [
+      "text/html; charset=UTF-8"
+    ],
+    "date": [
+      "Mon, 28 Sep 2026 01:38:05 GMT"
+    ],
+    "etag": [
+      "W/\"db2d05f03e6581a927d32948709f8807\""
+    ],
+    "glb-x-seen-by": [
+      "bS8wRlGzu0Hc+WrYuHB8QIg44yfcdCMJRkBoQ1h6Vjc="
+    ],
+    "link": [
+      "<https://static.parastorage.com/>; rel=preconnect; crossorigin, <https://static.parastorage.com/>; rel=preconnect, <https://static.wixstatic.com/>; rel=preconnect; crossorigin, <https://static.wixstatic.com/>; rel=preconnect, <https://siteassets.parastorage.com>; rel=preconnect; crossorigin"
+    ],
+    "referrer-policy": [
+      "no-referrer-when-downgrade"
+    ],
+    "server": [
+      "Pepyaka"
+    ],
+    "server-timing": [
+      "cache;desc=hit, varnish;desc=hit_hit, dc;desc=fastly_g"
+    ],
+    "strict-transport-security": [
+      "max-age=31536000"
+    ],
+    "vary": [
+      "Accept-Encoding"
+    ],
+    "via": [
+      "1.1 google"
+    ],
+    "x-cache": [
+      "HIT"
+    ],
+    "x-cache-status": [
+      "HIT"
+    ],
+    "x-content-type-options": [
+      "nosniff"
+    ],
+    "x-meta-site-is-wix-site": [
+      "1"
+    ],
+    "x-seen-by": [
+      "yvSunuo/8ld62ehjr5B7kA=="
+    ],
+    "x-served-by": [
+      "cache-mrs1530058-MRS"
+    ],
+    "x-wix-request-id": [
+      "1790559485.066862000445575804"
+    ]
+  },
+  "setCookies": [
+    "ssr-caching=cache#desc=hit#varnish=hit_hit#dc#desc=fastly_g; max-age=20",
+    "_wixCIDX=96a5dbdd-fe89-4757-bdd1-74553cdbd647; Max-Age=7776000; Expires=Sun, 27 Dec 2026 01:38:05 GMT; Path=/; Domain=.wix.com; Secure; SameSite=None",
+    "_wixUIDX=null-user-id; Max-Age=7776000; Expires=Sun, 27 Dec 2026 01:38:05 GMT; Path=/; Domain=.wix.com; Secure; SameSite=None"
+  ],
+  "captured_at": "2026-09-28T01:38:05.510Z"
+}

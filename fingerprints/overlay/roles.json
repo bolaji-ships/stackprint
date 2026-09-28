@@ -1,0 +1,369 @@
+{
+  "_comment": "How detections map to the flat GTM fields. A detection belongs to a role when its name is in 'include' or one of its categories is in 'categories', and it is not in 'exclude'. 'prefer' orders single-value roles. 'evidence' limits a role to detections with evidence of those kinds (so Cloudflare DNS alone is not a CDN). Detections under 50% confidence are ignored. Platform, commerce, page-builder, framework, chat and booking roles need on-page evidence (or a CNAME for platforms): an SPF include (Zendesk, Intercom) says they send email with the tool, not that a widget is on the site.",
+  "website_platform": {
+    "single": true,
+    "prefer": [
+      "Shopify",
+      "Wix",
+      "Squarespace",
+      "Webflow",
+      "Framer Sites",
+      "GoDaddy Website Builder",
+      "Square Online",
+      "Weebly",
+      "Duda",
+      "Jimdo",
+      "Strikingly",
+      "Carrd",
+      "Hostinger Website Builder",
+      "WebNode",
+      "Yola",
+      "Olitt",
+      "Tilda",
+      "Google Sites",
+      "HubSpot CMS Hub",
+      "BigCommerce",
+      "Magento",
+      "PrestaShop",
+      "OpenCart",
+      "Ecwid",
+      "Ghost",
+      "WordPress",
+      "Drupal",
+      "Joomla"
+    ],
+    "categories": [
+      1,
+      11,
+      57
+    ],
+    "evidence": [
+      "scriptSrc",
+      "scripts",
+      "html",
+      "dom",
+      "js",
+      "headers",
+      "cookies",
+      "meta",
+      "xhr",
+      "url",
+      "css",
+      "text",
+      "robots",
+      "implies",
+      "dns.cname",
+      "gtm-template"
+    ]
+  },
+  "ecommerce_platform": {
+    "single": true,
+    "prefer": [
+      "WooCommerce",
+      "Shopify",
+      "BigCommerce",
+      "Magento",
+      "PrestaShop",
+      "OpenCart",
+      "Wix eCommerce",
+      "Squarespace Commerce",
+      "Square Online",
+      "Ecwid",
+      "Selar",
+      "Bumpa"
+    ],
+    "categories": [
+      6
+    ],
+    "exclude": [
+      "Cart Functionality",
+      "Shop Pay"
+    ],
+    "evidence": [
+      "scriptSrc",
+      "scripts",
+      "html",
+      "dom",
+      "js",
+      "headers",
+      "cookies",
+      "meta",
+      "xhr",
+      "url",
+      "css",
+      "text",
+      "robots",
+      "implies",
+      "dns.cname",
+      "gtm-template"
+    ]
+  },
+  "page_builder": {
+    "single": true,
+    "include": [
+      "Beaver Builder"
+    ],
+    "categories": [
+      51
+    ],
+    "exclude": [
+      "WordPress Block Editor",
+      "Webflow",
+      "Framer Sites",
+      "Carrd",
+      "Duda",
+      "Hostinger Website Builder",
+      "WebNode",
+      "Yola",
+      "Olitt"
+    ],
+    "evidence": [
+      "scriptSrc",
+      "scripts",
+      "html",
+      "dom",
+      "js",
+      "headers",
+      "cookies",
+      "meta",
+      "xhr",
+      "url",
+      "css",
+      "text",
+      "robots",
+      "implies",
+      "dns.cname",
+      "gtm-template"
+    ]
+  },
+  "js_framework": {
+    "max": 2,
+    "prefer": [
+      "Next.js",
+      "Nuxt.js",
+      "Gatsby",
+      "Remix",
+      "Astro",
+      "SvelteKit",
+      "Angular",
+      "React",
+      "Vue.js",
+      "Svelte"
+    ],
+    "categories": [
+      12
+    ],
+    "evidence": [
+      "scriptSrc",
+      "scripts",
+      "html",
+      "dom",
+      "js",
+      "headers",
+      "cookies",
+      "meta",
+      "xhr",
+      "url",
+      "css",
+      "text",
+      "robots",
+      "implies",
+      "dns.cname",
+      "gtm-template"
+    ]
+  },
+  "hosting_provider": {
+    "single": true,
+    "categories": [
+      62,
+      63,
+      88
+    ],
+    "exclude": [
+      "Amazon S3"
+    ],
+    "evidence": [
+      "headers",
+      "cookies",
+      "html",
+      "scriptSrc",
+      "url",
+      "certIssuer",
+      "ptr",
+      "meta",
+      "dom"
+    ]
+  },
+  "cdn": {
+    "single": true,
+    "categories": [
+      31
+    ],
+    "evidence": [
+      "headers",
+      "cookies"
+    ]
+  },
+  "crm": {
+    "max": 3,
+    "include": [
+      "HubSpot",
+      "Wati"
+    ],
+    "categories": [
+      53
+    ]
+  },
+  "marketing_automation": {
+    "max": 4,
+    "include": [
+      "MailChimp",
+      "Klaviyo",
+      "Sendinblue",
+      "ActiveCampaign",
+      "Salesforce Marketing Cloud Account Engagement",
+      "Marketo",
+      "HubSpot",
+      "Omnisend"
+    ],
+    "categories": [
+      32
+    ]
+  },
+  "ad_pixels": {
+    "max": 6,
+    "include": [
+      "Facebook Pixel",
+      "Google Ads Conversion Tracking",
+      "Google Ads",
+      "Linkedin Insight Tag",
+      "Linkedin Ads",
+      "TikTok Pixel",
+      "Snap Pixel",
+      "Twitter Ads",
+      "Microsoft Advertising",
+      "Reddit Ads",
+      "theTradeDesk",
+      "Criteo",
+      "Taboola",
+      "Outbrain",
+      "AdRoll",
+      "StackAdapt",
+      "Quora Pixel"
+    ],
+    "categories": [
+      77
+    ]
+  },
+  "analytics": {
+    "max": 5,
+    "categories": [
+      10
+    ],
+    "exclude": [
+      "Facebook Pixel",
+      "Google Ads Conversion Tracking",
+      "Linkedin Insight Tag",
+      "TikTok Pixel",
+      "Snap Pixel",
+      "PixelYourSite",
+      "Quora Pixel"
+    ]
+  },
+  "chat_widget": {
+    "max": 3,
+    "include": [
+      "Wati",
+      "WhatsApp Business Chat",
+      "PushDaddy Whatsapp Chat",
+      "Joinchat",
+      "GetButton",
+      "Click to Chat",
+      "WP WhatsApp Chat",
+      "Podium"
+    ],
+    "categories": [
+      52
+    ],
+    "exclude": [
+      "Brevo"
+    ],
+    "evidence": [
+      "scriptSrc",
+      "scripts",
+      "html",
+      "dom",
+      "js",
+      "headers",
+      "cookies",
+      "meta",
+      "xhr",
+      "url",
+      "css",
+      "text"
+    ]
+  },
+  "payment_processors": {
+    "max": 4,
+    "categories": [
+      41
+    ],
+    "exclude": [
+      "Visa",
+      "Mastercard",
+      "American Express",
+      "Apple Pay",
+      "Google Pay",
+      "Shop Pay",
+      "Amazon Pay"
+    ]
+  },
+  "booking_tool": {
+    "max": 2,
+    "categories": [
+      72,
+      93
+    ],
+    "evidence": [
+      "scriptSrc",
+      "scripts",
+      "html",
+      "dom",
+      "js",
+      "headers",
+      "cookies",
+      "meta",
+      "xhr",
+      "url",
+      "css",
+      "text"
+    ]
+  },
+  "whatsapp": {
+    "include": [
+      "WhatsApp Business Chat",
+      "PushDaddy Whatsapp Chat",
+      "Joinchat",
+      "GetButton",
+      "Click to Chat",
+      "WP WhatsApp Chat",
+      "Wati"
+    ]
+  },
+  "google_analytics": {
+    "include": [
+      "Google Analytics"
+    ]
+  },
+  "google_ads": {
+    "include": [
+      "Google Ads Conversion Tracking",
+      "Google Ads"
+    ]
+  },
+  "meta_pixel": {
+    "include": [
+      "Facebook Pixel"
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+node_modules/
+dist/
+coverage/
+*.log
+.DS_Store
+
+# Local config and secrets
+.env
+.env.*
+!.env.example
+
+# Local data (SQLite index, batch outputs, benchmark runs)
+data/
+*.db
+*.db-shm
+*.db-wal
+out/
+bench/runs/
+
+# Never commit private ground truth or third-party datasets
+**/*.private.*

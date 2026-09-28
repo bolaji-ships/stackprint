@@ -1,0 +1,43 @@
+{
+  "_comment": "Local-services booking and chat tools missing upstream, plus fast-mode rules for upstream entries that only had JS rules.",
+  "Jobber": {
+    "cats": [72],
+    "website": "https://getjobber.com",
+    "description": "Jobber is field service management software with online booking and client hub (not JobberBase).",
+    "saas": true,
+    "scriptSrc": ["getjobber\\.com"],
+    "dom": ["a[href*='getjobber.com']", "iframe[src*='getjobber.com']"]
+  },
+  "Urable": {
+    "cats": [72],
+    "website": "https://www.urable.com",
+    "description": "Urable is shop management and booking software for auto detailing and tint businesses.",
+    "saas": true,
+    "scriptSrc": ["urable\\.com"],
+    "dom": ["a[href*='urable.com']", "iframe[src*='urable.com']"]
+  },
+  "Fieldd": {
+    "scriptSrc": ["fieldd\\.co\\b"],
+    "dom": ["a[href*='fieldd.co']", "iframe[src*='fieldd.co']"]
+  },
+  "Click to Chat": {
+    "cats": [52, 87],
+    "website": "https://holithemes.com/plugins/click-to-chat/",
+    "description": "Click to Chat is a WordPress plugin that adds a WhatsApp chat button.",
+    "scriptSrc": ["\\/wp-content\\/plugins\\/click-to-chat-for-whatsapp\\/"],
+    "implies": "WordPress"
+  },
+  "WP WhatsApp Chat": {
+    "cats": [52, 87],
+    "website": "https://quadlayers.com/products/whatsapp-chat/",
+    "description": "WP WhatsApp Chat (QuadLayers) is a WordPress plugin that adds a WhatsApp chat button.",
+    "scriptSrc": ["\\/wp-content\\/plugins\\/wp-whatsapp-chat\\/"],
+    "implies": "WordPress"
+  },
+  "Gorgias": { "scriptSrc": ["config\\.gorgias\\.chat", "gorgias-chat-bundle"] },
+  "Pipedrive": {
+    "scriptSrc": ["leadbooster-chat\\.pipedrive\\.com", "webforms\\.pipedrive\\.com"],
+    "dom": ["iframe[src*='pipedrive.com']"]
+  },
+  "Triple Whale": { "scripts": ["TriplePixelData"] }
+}

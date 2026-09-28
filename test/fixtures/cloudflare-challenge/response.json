@@ -1,0 +1,1 @@
+{ "url": "https://example-protected.com/", "status": 403, "headers": { "content-type": ["text/html; charset=UTF-8"], "cf-mitigated": ["challenge"], "server": ["cloudflare"], "cf-ray": ["8c1a2b3c4d5e6f70-LOS"] }, "setCookies": [], "captured_at": "synthetic" }

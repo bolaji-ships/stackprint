@@ -1,0 +1,43 @@
+{
+  "_comment": "Corrections to upstream webappanalyzer rules. 'remove' drops exact upstream pattern strings; 'disable' drops a technology. Each entry says why. The update script reports entries that stop matching.",
+  "remove": {
+    "Sirvoy": {
+      "_why": "svSession is Wix's own session variable, so every Wix site was reported as using Sirvoy. The JS global SirvoyBookingWidget (deep mode) remains.",
+      "scripts": [
+        "svSession"
+      ]
+    },
+    "Apple iCloud Mail": {
+      "_why": "apple-domain-verification TXT records come from Apple Business / Sign in with Apple, not iCloud Mail (Prospeo reports iCloud on 3,073 US SaaS domains because of this). MX and the icloud SPF redirect remain.",
+      "dns": {
+        "TXT": [
+          "apple-domain"
+        ]
+      }
+    },
+    "Zoho Mail": {
+      "_why": "transmail.net is ZeptoMail, Zoho's transactional email service, not Zoho Mail. Moved to the ZeptoMail overlay entry; Zoho Mail gets MX rules instead.",
+      "dns": {
+        "TXT": [
+          "transmail\\.net"
+        ]
+      }
+    },
+    "Microsoft 365": {
+      "_why": "An MS= tenant token only proves the domain was verified with Microsoft (Teams, Entra, Office), not that mail is on Microsoft 365; it contradicted Google Workspace MX on real sites. The email classifier still uses it to see through gateways.",
+      "dns": {
+        "TXT": [
+          "^MS=(?:ms[\\w-]+|[0-9A-Fa-f]{40})$"
+        ]
+      }
+    },
+    "Linear": {
+      "_why": "linear-domain-verification belongs to Linear.app (issue tracking), not the real-estate payments product this entry describes. Moved to 'Linear App'.",
+      "dns": {
+        "TXT": [
+          "linear-domain-verification="
+        ]
+      }
+    }
+  }
+}

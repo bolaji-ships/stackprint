@@ -1,0 +1,77 @@
+{
+  "url": "https://webflow.com/",
+  "status": 200,
+  "headers": {
+    "age": [
+      "62682"
+    ],
+    "alt-svc": [
+      "h3=\":443\"; ma=86400"
+    ],
+    "cf-cache-status": [
+      "HIT"
+    ],
+    "cf-ray": [
+      "a41f06ba6e687ce6-IAD"
+    ],
+    "connection": [
+      "keep-alive"
+    ],
+    "content-encoding": [
+      "gzip"
+    ],
+    "content-security-policy": [
+      "frame-ancestors 'self' https://webflow.com https://*.webflow.com https://app.intellimize.com; style-src 'self' 'unsafe-inline' https://webflow.com https://*.webflow.com https://d1otoma47x30pg.cloudfront.net https://d3e54v103j8qbb.cloudfront.net https://daks2k3a4ib2z.cloudfront.net https://dhygzobemt712.cloudfront.net https://accounts.google.com https://fonts.googleapis.com https://go.webflow.com https://app.pendo.io https://cdn.birdie.so https://cdn.jsdelivr.net https://cdn.pendo.io https://content-6312168775680000.static.pendo.io https://cdn.prod.website-files.com https://code-components.website-files.com https://transcend-cdn.com https://www.gstatic.com; img-src 'self' data: https://webflow.com https://*.webflow.com https://d1otoma47x30pg.cloudfront.net https://d3e54v103j8qbb.cloudfront.net https://daks2k3a4ib2z.cloudfront.net https://dhygzobemt712.cloudfront.net https://cdn.prod.website-files.com https://code-components.website-files.com https://connect.facebook.com https://*.ads.linkedin.com https://*.doubleclick.net https://www.facebook.com https://*.google.com https://webflow-assets.s3.us-east-1.amazonaws.com https://www.googleadservices.com https://www.google.ad https://www.google.ae https://www.google.al https://www.google.at https://www.google.az https://www.google.ba https://www.google.be https://www.google.bg https://www.google.bj https://www.google.by https://www.google.ca https://www.google.ch https://www.google.cl https://www.google.co.cr https://www.google.co.id https://www.google.co.il https://www.google.co.in https://www.google.co.jp https://www.google.co.ke https://www.google.co.kr https://www.google.co.ma https://www.google.co.nz https://www.google.co.th https://www.google.co.ug https://www.google.co.uk https://www.google.co.uz https://www.google.co.za https://www.google.co.zm https://www.google.com.ar https://www.google.com.au https://www.google.com.bd https://www.google.com.br https://www.google.com.co https://www.google.com.cy https://www.google.com.ec https://www.google.com.eg https://www.google.com.gh https://www.google.com.hk https://www.google.com.kw https://www.google.com.mx https://www.google.com.ng https://www.google.com.np https://www.google.com.ph https://www.google.com.pk https://www.google.com.pr https://www.google.com.qa https://www.google.com.sa https://www.google.com.sg https://www.google.com.sv https://www.google.com.tj https://www.google.com.tr https://www.google.com.tw https://www.google.com.ua https://www.google.com.uy https://www.google.com.vn https://www.google.cz https://www.google.de https://www.google.dk https://www.google.ee https://www.google.es https://www.google.fi https://www.google.fr https://www.google.ga https://www.google.ge https://www.google.gl https://www.google.gr https://www.google.hr https://www.google.hu https://www.google.ie https://www.google.it https://www.google.kg https://www.google.kz https://www.google.lk https://www.google.lt https://www.google.lu https://www.google.lv https://www.google.md https://www.google.mg https://www.google.mk https://www.google.mu https://www.google.mw https://www.google.my https://www.google.nl https://www.google.no https://www.google.pe https://www.google.pl https://www.google.pt https://www.google.ro https://www.google.rs https://www.google.ru https://www.google.se https://www.google.si https://www.google.sk https://www.google.tn https://webflow-assets-studio-temp-prod.s3.amazonaws.com https://*.webflow.com https://account-assets.knock.app https://alb.reddit.com https://analytics.twitter.com https://app.pendo.io https://b.6sc.co https://bat.bing.com https://bat.bing.net https://cdn.pendo.io https://content-6312168775680000.static.pendo.io https://data.pendo.io https://embed-ssl.wistia.com https://fast.wistia.com https://fonts.gstatic.com https://i.ytimg.com https://messenger-assets.qualified.com https://q.quora.com https://quickchart.io https://webflow.itsoffbrand.io https://www.googletagmanager.com"
+    ],
+    "content-security-policy-report-only": [
+      "frame-ancestors 'self' https://webflow.com https://*.webflow.com https://app.intellimize.com; connect-src 'self' https://webflow.com https://*.webflow.com https://d1otoma47x30pg.cloudfront.net https://d3e54v103j8qbb.cloudfront.net https://daks2k3a4ib2z.cloudfront.net https://dhygzobemt712.cloudfront.net https://cdn.prod.website-files.com https://code-components.website-files.com https://webflow-assets.s3.us-east-1.amazonaws.com https://browser-intake-datadoghq.com https://statsigapi.net https://beyondwickedmapping.org https://cloudflare-dns.com https://featureassets.org https://prodregistryv2.org https://api.segment.io https://www.google-analytics.com https://*.clarity.ms https://050-lkc-745.mktoresp.com https://050-lkc-745.mktoutil.com https://bat.bing.com https://bat.bing.net https://cdn.dreamdata.cloud https://grsm.io https://partnerlinks.io https://pixel-config.reddit.com https://*.ads.linkedin.com https://q.quora.com https://tracking.goentri.com https://api.claydar.com https://api.goentri.com https://assetsconfigcdn.org https://api.intellimize.co https://api.knock.app https://api.sprig.com https://app.clearbit.com https://app.pendo.io https://content-6312168775680000.static.pendo.io https://data.pendo.io https://log.intellimize.co wss://api.knock.app https://*.doubleclick.net https://www.facebook.com https://*.google.com https://www.googleadservices.com https://www.googleservices.com https://cdn.birdie.so https://cf.birdie.so https://sock.birdie.so https://sockr.birdie.so wss://sock.birdie.so wss://sockr.birdie.so https://*.px-cdn.net https://*.px-client.net https://*.px-cloud.net https://*.pxchk.net https://c.6sc.co https://ipv6.6sc.co https://telemetry.us.transcend.io https://transcend-cdn.com https://tzm.px-cloud.net https://distillery.wistia.com https://embed-cloudfront.wistia.com https://fast.wistia.com https://pipedream.wistia.com https://app.qualified.com wss://ws7.qualified.com https://webflow-prod-assets.s3.amazonaws.com https://webflow-tmp-csv-import-production.s3.amazonaws.com https://*.google-analytics.com https://*.googlesyndication.com https://www.googletagmanager.com https://www.google.ad https://www.google.ae https://www.google.al https://www.google.at https://www.google.az https://www.google.ba https://www.google.be https://www.google.bg https://www.google.bj https://www.google.by https://www.google.ca https://www.google.ch https://www.google.cl https://www.google.co.cr https://www.google.co.id https://www.google.co.il https://www.google.co.in https://www.google.co.jp https://www.google.co.ke https://www.google.co.kr https://www.google.co.ma https://www.google.co.nz https://www.google.co.th https://www.google.co.ug https://www.google.co.uk https://www.google.co.uz https://www.google.co.za https://www.google.co.zm https://www.google.com.ar https://www.google.com.au https://www.google.com.bd https://www.google.com.br https://www.google.com.co https://www.google.com.cy https://www.google.com.ec https://www.google.com.eg https://www.google.com.gh https://www.google.com.hk https://www.google.com.kw https://www.google.com.mx https://www.google.com.ng https://www.google.com.np https://www.google.com.ph https://www.google.com.pk https://www.google.com.pr https://www.google.com.qa https://www.google.com.sa https://www.google.com.sg https://www.google.com.sv https://www.google.com.tj https://www.google.com.tr https://www.google.com.tw https://www.google.com.ua https://www.google.com.uy https://www.google.com.vn https://www.google.cz https://www.google.de https://www.google.dk https://www.google.ee https://www.google.es https://www.google.fi https://www.google.fr https://www.google.ga https://www.google.ge https://www.google.gl https://www.google.gr https://www.google.hr https://www.google.hu https://www.google.ie https://www.google.it https://www.google.kg https://www.google.kz https://www.google.lk https://www.google.lt https://www.google.lu https://www.google.lv https://www.google.md https://www.google.mg https://www.google.mk https://www.google.mu https://www.google.mw https://www.google.my https://www.google.nl https://www.google.no https://www.google.pe https://www.google.pl https://www.google.pt https://www.google.ro https://www.google.rs https://www.google.ru https://www.google.se https://www.google.si https://www.google.sk https://www.google.tn; style-src 'self' 'unsafe-inline' https://webflow.com https://*.webflow.com https://d1otoma47x30pg.cloudfront.net https://d3e54v103j8qbb.cloudfront.net https://daks2k3a4ib2z.cloudfront.net https://dhygzobemt712.cloudfront.net https://accounts.google.com https://fonts.googleapis.com https://go.webflow.com https://app.pendo.io https://cdn.birdie.so https://cdn.jsdelivr.net https://cdn.pendo.io https://content-6312168775680000.static.pendo.io https://cdn.prod.website-files.com https://code-components.website-files.com https://transcend-cdn.com https://www.gstatic.com; img-src 'self' data: https://webflow.com https://*.webflow.com https://d1otoma47x30pg.cloudfront.net https://d3e54v103j8qbb.cloudfront.net https://daks2k3a4ib2z.cloudfront.net https://dhygzobemt712.cloudfront.net https://cdn.prod.website-files.com https://code-components.website-files.com https://connect.facebook.com https://*.ads.linkedin.com https://*.doubleclick.net https://www.facebook.com https://*.google.com https://webflow-assets.s3.us-east-1.amazonaws.com https://www.googleadservices.com https://www.google.ad https://www.google.ae https://www.google.al https://www.google.at https://www.google.az https://www.google.ba https://www.google.be https://www.google.bg https://www.google.bj https://www.google.by https://www.google.ca https://www.google.ch https://www.google.cl https://www.google.co.cr https://www.google.co.id https://www.google.co.il https://www.google.co.in https://www.google.co.jp https://www.google.co.ke https://www.google.co.kr https://www.google.co.ma https://www.google.co.nz https://www.google.co.th https://www.google.co.ug https://www.google.co.uk https://www.google.co.uz https://www.google.co.za https://www.google.co.zm https://www.google.com.ar https://www.google.com.au https://www.google.com.bd https://www.google.com.br https://www.google.com.co https://www.google.com.cy https://www.google.com.ec https://www.google.com.eg https://www.google.com.gh https://www.google.com.hk https://www.google.com.kw https://www.google.com.mx https://www.google.com.ng https://www.google.com.np https://www.google.com.ph https://www.google.com.pk https://www.google.com.pr https://www.google.com.qa https://www.google.com.sa https://www.google.com.sg https://www.google.com.sv https://www.google.com.tj https://www.google.com.tr https://www.google.com.tw https://www.google.com.ua https://www.google.com.uy https://www.google.com.vn https://www.google.cz https://www.google.de https://www.google.dk https://www.google.ee https://www.google.es https://www.google.fi https://www.google.fr https://www.google.ga https://www.google.ge https://www.google.gl https://www.google.gr https://www.google.hr https://www.google.hu https://www.google.ie https://www.google.it https://www.google.kg https://www.google.kz https://www.google.lk https://www.google.lt https://www.google.lu https://www.google.lv https://www.google.md https://www.google.mg https://www.google.mk https://www.google.mu https://www.google.mw https://www.google.my https://www.google.nl https://www.google.no https://www.google.pe https://www.google.pl https://www.google.pt https://www.google.ro https://www.google.rs https://www.google.ru https://www.google.se https://www.google.si https://www.google.sk https://www.google.tn https://webflow-assets-studio-temp-prod.s3.amazonaws.com https://*.webflow.com https://account-assets.knock.app https://alb.reddit.com https://analytics.twitter.com https://app.pendo.io https://b.6sc.co https://bat.bing.com https://bat.bing.net https://cdn.pendo.io https://content-6312168775680000.static.pendo.io https://data.pendo.io https://embed-ssl.wistia.com https://fast.wistia.com https://fonts.gstatic.com https://i.ytimg.com https://messenger-assets.qualified.com https://q.quora.com https://quickchart.io https://webflow.itsoffbrand.io https://www.googletagmanager.com; report-uri https://webflow.report-uri.com/r/t/csp/reportOnly"
+    ],
+    "content-type": [
+      "text/html; charset=utf-8"
+    ],
+    "date": [
+      "Mon, 28 Sep 2026 01:38:02 GMT"
+    ],
+    "last-modified": [
+      "Sun, 27 Sep 2026 08:13:19 GMT"
+    ],
+    "link": [
+      "<https://cdn.prod.website-files.com>; rel=preconnect; crossorigin, <https://cdn.prod.website-files.com/686294e263eb7e215bd232f7/css/marketing-main.webflow.shared.ba5f7055f.min.css>; rel=preload; as=style; crossorigin; integrity=\"sha384-ul9wVfpk/bGjHfFALn1DsX69rtc4hTt4acw5b7l9Quul096+R/hAIwWHTTnYFVxb\", <https://cdn.prod.website-files.com/686294e263eb7e215bd232f7/css/marketing-main.webflow.686294e363eb7e215bd2334b.5781ef409.opt.min.css>; rel=preload; as=style; crossorigin; integrity=\"sha384-V4HvQJ6dLtMd55pNXhmBPAF604t2J3wCLoF8h4dRE5sbec+MoiYtTGCNkvCHl6vQ\", <https://fonts.googleapis.com>; rel=preconnect, <https://fonts.gstatic.com>; rel=preconnect; crossorigin, <https://cdn.intellimize.co>; rel=preconnect, <https://api.intellimize.co>; rel=preconnect; crossorigin, <https://log.intellimize.co>; rel=preconnect; crossorigin, <https://117761985.intellimizeio.com>; rel=preconnect"
+    ],
+    "referrer-policy": [
+      "strict-origin-when-cross-origin"
+    ],
+    "strict-transport-security": [
+      "max-age=31536000; preload, max-age=31536000"
+    ],
+    "surrogate-control": [
+      "max-age=432000"
+    ],
+    "surrogate-key": [
+      "webflowmarketingmain.com 686294e263eb7e215bd232f7 pageId:686294e363eb7e215bd2334b 6a8d4dbce92059e4e7d26246 6882041de62598599997d514"
+    ],
+    "transfer-encoding": [
+      "chunked"
+    ],
+    "vary": [
+      "accept-encoding"
+    ],
+    "x-cache-status": [
+      "EXPIRED"
+    ],
+    "x-frame-options": [
+      "SAMEORIGIN"
+    ],
+    "x-lambda-id": [
+      "bc30341c-093d-4739-af6d-3873814917f9"
+    ],
+    "x-wf-page-id": [
+      "aGKU42PrfiFb0jNL"
+    ],
+    "x-wf-region": [
+      "us-east-1"
+    ]
+  },
+  "setCookies": [],
+  "captured_at": "2026-09-28T01:38:02.577Z"
+}

@@ -1,0 +1,92 @@
+{
+  "url": "https://nextjs.org/",
+  "status": 200,
+  "headers": {
+    "age": [
+      "707"
+    ],
+    "alt-svc": [
+      "h3=\":443\"; ma=300"
+    ],
+    "cache-control": [
+      "public, max-age=0, must-revalidate"
+    ],
+    "connection": [
+      "keep-alive"
+    ],
+    "content-encoding": [
+      "br"
+    ],
+    "content-security-policy": [
+      "default-src 'self' nextjs.org *.nextjs.org vercel.com *.vercel.com *.vercel.sh vercel.live wss://*.vercel.com wss://*.nextjs.org localhost:*;script-src 'self' 'unsafe-inline' www.google.com www.google-analytics.com www.googleadservices.com www.gstatic.com *.youtube.com *.youtube-nocookie.com *.ytimg.com *.twimg.com cdn.ampproject.org www.googletagmanager.com *.googleapis.com *.fides-cdn.ethyca.com *.ethyca.com cdn.ethyca.com cdn.vercel-insights.com va.vercel-scripts.com app.cal.com *.cr-relay.com vercel.com *.vercel.com *.vercel.sh vercel.live nextjs.org *.nextjs.org localhost:* chrome-extension://*;child-src *.youtube.com *.youtube-nocookie.com *.stripe.com www.google.com td.doubleclick.net github.com calendly.com vercel.cal.com *.vercel.app *.vercel.dev nextjs.org *.nextjs.org vercel.com *.vercel.com *.vercel.sh vercel.live wss://*.vercel.com wss://*.nextjs.org localhost:*;style-src 'self' 'unsafe-inline' *.googleapis.com nextjs.org *.nextjs.org vercel.com *.vercel.com *.vercel.sh vercel.live wss://*.vercel.com wss://*.nextjs.org localhost:*;img-src * blob: data:;media-src 'self' videos.ctfassets.net user-images.githubusercontent.com replicate.delivery *.public.blob.vercel-storage.com blob: data: nextjs.org *.nextjs.org vercel.com *.vercel.com *.vercel.sh vercel.live wss://*.vercel.com wss://*.nextjs.org localhost:*;connect-src 'self' data: vercel.com *.vercel.com *.vercel.sh vercel.live wss://*.vercel.com wss://*.nextjs.org nextjs.org *.nextjs.org localhost:* cdn.vercel-insights.com va.vercel-scripts.com cdp.vercel.com www.google-analytics.com www.googletagmanager.com *.googleapis.com *.cr-relay.com *.ethyca.com cdn.ethyca.com risk.clearbit.com *.ingest.sentry.io *.ingest.us.sentry.io *.public.blob.vercel-storage.com;font-src 'self' *.nextjs.org *.vercel.com *.gstatic.com vercel.live *.vercel.sh;worker-src 'self' *.nextjs.org *.vercel.com blob:"
+    ],
+    "content-type": [
+      "text/html; charset=utf-8"
+    ],
+    "date": [
+      "Sun, 27 Sep 2026 05:08:57 GMT"
+    ],
+    "feature-policy": [
+      "fullscreen 'self'; camera 'none'"
+    ],
+    "link": [
+      "</_next/static/immutable/media/797e433ab948586e.p.1v5bejj26fx9h.woff2>; rel=preload; as=\"font\"; crossorigin=\"\"; type=\"font/woff2\", </_next/static/immutable/media/Geist_Variable-s.p.2v-cf9syxr5ni.woff2>; rel=preload; as=\"font\"; crossorigin=\"\"; type=\"font/woff2\", </_next/static/immutable/media/nextjs-logotype-light.00-_80jv8_dct.svg>; rel=preload; as=\"image\", </_next/static/immutable/media/nextjs-logotype-dark.3h4a2z2v_dkod.svg>; rel=preload; as=\"image\", </_next/static/immutable/media/eve-light.1e3bxs4ejw62x.svg>; rel=preload; as=\"image\", </_next/static/immutable/media/eve-dark.2l_s1mlvozam3.svg>; rel=preload; as=\"image\", </_next/static/immutable/media/logo-github-light.3dl3lqjq1azpp.svg>; rel=preload; as=\"image\", </_next/static/immutable/media/logo-github-dark.1k-70sin_m3qn.svg>; rel=preload; as=\"image\""
+    ],
+    "referrer-policy": [
+      "origin-when-cross-origin"
+    ],
+    "server": [
+      "Vercel"
+    ],
+    "strict-transport-security": [
+      "max-age=31536000; includeSubDomains; preload"
+    ],
+    "transfer-encoding": [
+      "chunked"
+    ],
+    "vary": [
+      "rsc,next-router-state-tree,next-router-prefetch,next-router-segment-prefetch"
+    ],
+    "x-content-type-options": [
+      "nosniff"
+    ],
+    "x-dns-prefetch-control": [
+      "on"
+    ],
+    "x-download-options": [
+      "noopen"
+    ],
+    "x-frame-options": [
+      "DENY"
+    ],
+    "x-matched-path": [
+      "/home/none"
+    ],
+    "x-nextjs-prerender": [
+      "1"
+    ],
+    "x-nextjs-stale-time": [
+      "300"
+    ],
+    "x-powered-by": [
+      "Next.js"
+    ],
+    "x-vercel-cache": [
+      "HIT"
+    ],
+    "x-vercel-id": [
+      "lhr1::cle1::45htp-1790559483312-af194ec8168e"
+    ],
+    "x-vercel-pop": [
+      "LHR61-P1"
+    ],
+    "x-vercel-pop-id": [
+      "3PwrOnGHAFsIy05KVOljnpyqtp_lMM68AkzFMbghyOVBL6aCEunxAg=="
+    ],
+    "x-xss-protection": [
+      "0"
+    ]
+  },
+  "setCookies": [],
+  "captured_at": "2026-09-28T01:38:03.428Z"
+}
