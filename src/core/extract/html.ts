@@ -4,7 +4,7 @@
  * same code runs on cheerio (fast mode), a live page (deep mode) or a browser extension.
  */
 
-import type { DomAdapter, SourcedValue } from "../types.js";
+import type { DomAdapter, DomNode, SourcedValue } from "../types.js";
 
 export interface HtmlDocument extends DomAdapter {
   /** Visible body text with script, style, noscript and template removed (not yet normalised). */
@@ -195,6 +195,24 @@ function all(doc: DomAdapter, selector: string) {
   }
 }
 
+/** Tracker and widget frames that are never the page a domain forwards to. */
+const TRACKER_FRAME_RE =
+  /^(?:https?:)?\/\/(?:www\.)?(?:googletagmanager\.com|google-analytics\.com|doubleclick\.net|facebook\.com\/tr)\b/i;
+
+function isHiddenOrTrackerFrame(node: DomNode): boolean {
+  const style = (node.attr("style") ?? "").replace(/\s+/g, "").toLowerCase();
+  const zero = (v: string | undefined) => v !== undefined && /^0(?:px)?$/i.test(v.trim());
+
+  return (
+    TRACKER_FRAME_RE.test(node.attr("src") ?? "") ||
+    style.includes("display:none") ||
+    style.includes("visibility:hidden") ||
+    zero(node.attr("width")) ||
+    zero(node.attr("height")) ||
+    node.attr("hidden") !== undefined
+  );
+}
+
 export function extractHtml(doc: HtmlDocument, baseUrl: string): HtmlExtract {
   const meta: Record<string, string[]> = {};
 
@@ -346,7 +364,12 @@ export function extractHtml(doc: HtmlDocument, baseUrl: string): HtmlExtract {
     if (frameSrc) {
       redirectHint = absolutize(frameSrc, baseUrl);
     } else if (!fullText) {
-      const iframes = all(doc, "iframe[src]");
+      // Masked forwarding frames the real site full-page. A JS app shell also has no text, and its
+      // only iframe is often a tracker (GTM's hidden <noscript> iframe), which must not be followed.
+      const noscriptSrcs = new Set(all(doc, "noscript iframe[src]").map((n) => n.attr("src")));
+      const iframes = all(doc, "iframe[src]").filter(
+        (n) => !noscriptSrcs.has(n.attr("src")) && !isHiddenOrTrackerFrame(n),
+      );
 
       if (iframes.length === 1) {
         redirectHint = absolutize(iframes[0].attr("src") ?? "", baseUrl);

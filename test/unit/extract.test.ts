@@ -146,6 +146,24 @@ describe("HTML extraction", () => {
       "https://fwd.example/",
     );
     expect(frames.redirectHint).toBe("https://real.example/home");
+
+    // A JS app shell: no text, and the only iframe is GTM's hidden <noscript> tracker.
+    const appShell = extractHtml(
+      loadHtml(
+        '<html><head><script src="/app.js"></script></head><body><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ABC123" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><div id="root"></div></body></html>',
+      ),
+      "https://app.example/",
+    );
+    expect(appShell.redirectHint).toBeNull();
+
+    // Masked forwarding with a full-page iframe is still followed.
+    const masked = extractHtml(
+      loadHtml(
+        '<html><body style="margin:0"><iframe src="https://real.example/" width="100%" height="100%" frameborder="0"></iframe></body></html>',
+      ),
+      "https://fwd.example/",
+    );
+    expect(masked.redirectHint).toBe("https://real.example/");
   });
 });
 
