@@ -4,6 +4,7 @@ import type { Command } from "commander";
 import { parse } from "csv-parse/sync";
 import type { ScanResult } from "../../core/result.js";
 import { cliService, closeCliService } from "../../node/cli-service.js";
+import { browserPool } from "../../node/collect/browser.js";
 import { closeAgents } from "../../node/net/http.js";
 import { flatRow, outputColumns, toCsv } from "../csv.js";
 
@@ -88,6 +89,9 @@ export function registerBatch(program: Command): void {
         } finally {
           closeCliService();
           await closeAgents();
+          // Deep mode keeps Chromium warm for the next scan; a one-shot CLI must close it or the
+          // process waits for the 2-minute idle timer before exiting.
+          await browserPool.close();
         }
 
         const inputColumns = rows.length ? Object.keys(rows[0]) : [column];
