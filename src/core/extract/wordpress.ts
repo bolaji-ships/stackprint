@@ -20,7 +20,13 @@ const PLUGIN_RE =
   /\/wp-content\/plugins\/([a-z0-9._-]+)\/[^"'\s?#]*(?:\?[^"'\s#]*?\bver=([\w.-]+))?/gi;
 /** Path segments under /wp-content/plugins/ that are build or concat artifacts, not plugins. */
 const NOT_PLUGINS = new Set(["dist", "cache", "vendor", "min"]);
-const CORE_RE = /\/wp-includes\/[^"'\s?#]+\?[^"'\s#]*?\bver=(\d+\.\d+(?:\.\d+)?)\b/gi;
+const CORE_RE = /\/wp-includes\/([^"'\s?#]+)\?[^"'\s#]*?\bver=(\d+\.\d+(?:\.\d+)?)\b/gi;
+/**
+ * Third-party libraries WordPress ships under /wp-includes/js/. Their ?ver= is the library's own
+ * version (jquery.min.js?ver=3.7.1 is jQuery 3.7.1), not WordPress's, so they never count as core.
+ */
+const BUNDLED_LIB_RE =
+  /^js\/(?:jquery\/|dist\/vendor\/|mediaelement\/|thickbox\/|tinymce\/|plupload\/|codemirror\/|jcrop\/|crop\/|(?:underscore|backbone|imagesloaded|masonry|hoverIntent|hoverintent-js|swfobject|clipboard|zxcvbn|json2|tw-sack|colorpicker)(?:\.min)?\.js$)/i;
 
 function looksLikeVersion(v: string | undefined): v is string {
   return !!v && /^\d+(?:\.\d+){0,3}[a-z0-9-]*$/i.test(v) && v.length <= 15;
@@ -63,7 +69,11 @@ export function extractWordPress(urls: string[], generator: string[]): WordPress
     }
 
     for (const m of url.matchAll(CORE_RE)) {
-      coreVersions.set(m[1], (coreVersions.get(m[1]) ?? 0) + 1);
+      if (BUNDLED_LIB_RE.test(m[1])) {
+        continue;
+      }
+
+      coreVersions.set(m[2], (coreVersions.get(m[2]) ?? 0) + 1);
     }
   }
 

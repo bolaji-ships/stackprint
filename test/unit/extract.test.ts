@@ -105,6 +105,33 @@ describe("HTML extraction", () => {
     expect(wp?.plugins).toEqual([{ slug: "pixelyoursite", version: "11.0.1" }]);
   });
 
+  it("does not mistake bundled library versions under wp-includes for the WordPress version", () => {
+    const base = "https://shop.example";
+    const libsOnly = extractWordPress(
+      [
+        `${base}/wp-includes/js/jquery/jquery.min.js?ver=3.7.1`,
+        `${base}/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1`,
+        `${base}/wp-includes/js/dist/vendor/lodash.min.js?ver=4.17.21`,
+        `${base}/wp-includes/js/imagesloaded.min.js?ver=5.0.0`,
+        `${base}/wp-content/themes/razzi/style.css?ver=2.3.1`,
+      ],
+      [],
+    );
+    expect(libsOnly?.version).toBeNull();
+
+    const withCore = extractWordPress(
+      [
+        `${base}/wp-includes/js/jquery/jquery.min.js?ver=3.7.1`,
+        `${base}/wp-includes/js/jquery/ui/core.min.js?ver=1.13.3`,
+        `${base}/wp-includes/js/underscore.min.js?ver=1.13.7`,
+        `${base}/wp-includes/css/dist/block-library/style.min.css?ver=7.1.4`,
+        `${base}/wp-includes/js/wp-emoji-release.min.js?ver=7.1.4`,
+      ],
+      [],
+    );
+    expect(withCore?.version).toBe("7.1.4");
+  });
+
   it("finds meta refresh and frameset forwarding targets", () => {
     const refresh = extractHtml(
       loadHtml('<meta http-equiv="Refresh" content="0; URL=https://real.example/">'),
