@@ -1,5 +1,7 @@
 # stackprint
 
+![stackprint: see the tech stack behind any website, with proof](.github/cover.png)
+
 Open-source website technology detection. Give it a URL, get back the CMS, ecommerce platform, analytics, ad pixels, CRM, chat widget, payment processors, hosting, CDN and email provider, with the evidence for each.
 
 A free, self-hostable alternative to BuiltWith and Wappalyzer, built for GTM work: every result is flat, single-valued fields that drop straight into Clay, rowbound, n8n or a spreadsheet.
@@ -27,9 +29,27 @@ woocommerce.com  (website, ok, 200, 1.5 s)
 - **Change over time.** Every scan is saved. The index records when each technology was first and last seen, so adopting or dropping a tool becomes a signal (`tech_added`, `tech_removed`).
 - **Free and self-hosted.** No per-lookup fees, no account, AGPL so it stays open.
 
-## Quick start
+## How to use it
 
-Requires Node.js 22.12 or later.
+Pick the path that fits how you work.
+
+| You want to... | Use |
+|---|---|
+| Try it without touching a terminal | [Let your AI agent install it](#let-your-ai-agent-install-it) |
+| Check one site, or enrich a CSV of leads | [The command line](#the-command-line) |
+| Add stack columns to Clay, Google Sheets or n8n | [The API](#the-api-for-clay-sheets-and-n8n) |
+
+### Let your AI agent install it
+
+If you use Claude Code, Cursor, Codex or another coding agent, paste this:
+
+> Install stackprint from https://github.com/bolaji-ships/stackprint by following its README, then look up acme.com.
+
+Then ask in plain English: "check every website in leads.csv and tell me which ones use HubSpot", or "what email provider does stripe.com use?"
+
+### The command line
+
+You need [Node.js](https://nodejs.org) 22.12 or later (the current LTS works). Then, once:
 
 ```bash
 git clone https://github.com/bolaji-ships/stackprint.git
@@ -37,17 +57,33 @@ cd stackprint
 npm install
 npm run build
 npm link                      # puts `stackprint` on your PATH
+```
 
+Look up one site:
+
+```bash
 stackprint lookup acme.com
 stackprint lookup acme.com --json
 ```
 
-Deep mode (headless browser) needs Chromium once:
+Enrich a list. Point it at any CSV with a website column; it adds 66 columns (platform, email provider, CRM, ad pixels, tracking IDs, flags):
+
+```bash
+stackprint batch -i leads.csv -c website -o leads-enriched.csv
+```
+
+On a home connection, 100 company websites take about 30 seconds, so 5,000 take about 25 minutes. Reruns within 7 days come from the cache in seconds.
+
+Some sites block plain requests (Cloudflare and similar). Deep mode loads the page in a headless browser instead. It needs Chromium once:
 
 ```bash
 npx playwright install --only-shell chromium
 stackprint lookup acme.com --deep
 ```
+
+### The API (for Clay, Sheets and n8n)
+
+`stackprint serve` runs the same lookups as an HTTP API on your machine. That is enough for Google Sheets (via [rowbound](#recipes)) and a local n8n. Clay calls from the cloud, so it needs stackprint on a public URL: deploy your own copy (see [Self-hosting](#self-hosting); Railway works out of the box), then follow the Clay [recipe](#recipes).
 
 ## How it works
 
