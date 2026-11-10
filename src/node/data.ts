@@ -3,6 +3,7 @@
 
 import { readFileSync } from "node:fs";
 import { type CoreData, compileCoreData, type RawCoreData } from "../core/data.js";
+import type { RawBundleSignature } from "../core/extract/bundle.js";
 import { FINGERPRINTS_DIR } from "./fingerprints.js";
 
 function readOverlay<T>(file: string): T {
@@ -19,6 +20,8 @@ export function readRawCoreData(): RawCoreData {
     gtmTemplates: readOverlay("gtm-templates.json"),
     aliases: readOverlay("aliases.json"),
     npmPackages: readOverlay("npm-packages.json"),
+    bundleSignatures: readOverlay<{ signatures: RawBundleSignature[] }>("bundle-signatures.json")
+      .signatures,
   };
 }
 

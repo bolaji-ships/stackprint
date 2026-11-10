@@ -1,0 +1,107 @@
+{
+  "_comment": "Code signatures checked against the first-party bundles deep mode already reads (including the product app on a subdomain). Each pattern is a call or an account-specific URL that only a real integration contains, never a bare vendor domain: sites ship tracker lookup tables that name vendors they do not use. 'needle' is a plain substring checked first, for speed. Every technology must exist in the fingerprints.",
+  "signatures": [
+    {
+      "technology": "Freshchat",
+      "needle": "fcWidget",
+      "pattern": "fcWidget\\??\\.init\\(",
+      "label": "fcWidget.init()"
+    },
+    {
+      "technology": "Freshchat",
+      "needle": ".freshchat.com/js/widget.js",
+      "pattern": "[a-z0-9-]+\\.freshchat\\.com/js/widget\\.js",
+      "label": "<account>.freshchat.com/js/widget.js"
+    },
+    {
+      "technology": "MetaMap",
+      "needle": "metamap.com",
+      "pattern": "web-button\\.metamap\\.com/button\\.js",
+      "label": "web-button.metamap.com/button.js"
+    },
+    {
+      "technology": "Calendly",
+      "needle": "calendly.event_scheduled",
+      "pattern": "calendly\\.event_scheduled",
+      "label": "listens for calendly.event_scheduled"
+    },
+    {
+      "technology": "Branch",
+      "needle": "app.link/",
+      "pattern": "https?://[a-z0-9-]+\\.(?:test-)?app\\.link/",
+      "label": "<brand>.app.link deep link"
+    },
+    {
+      "technology": "Cloudinary",
+      "needle": "res.cloudinary.com/",
+      "pattern": "res\\.cloudinary\\.com/[a-z0-9_-]+/(?:image|video|raw)/upload/",
+      "label": "res.cloudinary.com/<cloud>/…/upload"
+    },
+    {
+      "technology": "Cloudflare Workers",
+      "needle": ".workers.dev",
+      "pattern": "https?://[a-z0-9.-]+\\.workers\\.dev",
+      "label": "<name>.workers.dev endpoint"
+    },
+    {
+      "technology": "Bridge",
+      "needle": "bridge.xyz",
+      "pattern": "bridge\\.xyz/legal/",
+      "label": "links Bridge's legal terms"
+    },
+    {
+      "technology": "Intercom",
+      "needle": "Intercom(",
+      "pattern": "Intercom\\(\\s*[\"']boot[\"']",
+      "label": "Intercom('boot')"
+    },
+    {
+      "technology": "Mixpanel",
+      "needle": "mixpanel.init(",
+      "pattern": "mixpanel\\.init\\(\\s*[\"'][0-9a-f]{32}[\"']",
+      "label": "mixpanel.init(<token>)"
+    },
+    {
+      "technology": "Segment",
+      "needle": "cdn.segment.com",
+      "pattern": "cdn\\.segment\\.com/analytics\\.js/v1/",
+      "label": "cdn.segment.com/analytics.js/v1/"
+    },
+    {
+      "technology": "PostHog",
+      "needle": "phc_",
+      "pattern": "posthog\\.init\\(\\s*[\"']phc_[A-Za-z0-9]{20,}",
+      "label": "posthog.init(phc_…)"
+    },
+    {
+      "technology": "Tawk.to",
+      "needle": "embed.tawk.to",
+      "pattern": "embed\\.tawk\\.to/[0-9a-f]{24}",
+      "label": "embed.tawk.to/<property>"
+    },
+    {
+      "technology": "Zendesk",
+      "needle": "zdassets.com",
+      "pattern": "static\\.zdassets\\.com/ekr/snippet\\.js",
+      "label": "static.zdassets.com/ekr/snippet.js"
+    },
+    {
+      "technology": "HubSpot",
+      "needle": "hs-scripts.com",
+      "pattern": "js\\.hs-scripts\\.com/\\d+\\.js",
+      "label": "js.hs-scripts.com/<portal>.js"
+    },
+    {
+      "technology": "Paystack",
+      "needle": "PaystackPop",
+      "pattern": "PaystackPop\\.setup\\(",
+      "label": "PaystackPop.setup()"
+    },
+    {
+      "technology": "Stripe",
+      "needle": "pk_live_",
+      "pattern": "[\"']pk_live_[A-Za-z0-9]{20,}[\"']",
+      "label": "live publishable key"
+    }
+  ]
+}

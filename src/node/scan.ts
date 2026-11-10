@@ -242,6 +242,7 @@ export async function scan(
         bytes: b.bytes,
         truncated: b.truncated,
         manifests: b.manifests.map((m) => ({ name: m.name, dependencies: m.dependencies.length })),
+        signatures: b.signatures,
         packages: (parts.bundles?.packages ?? [])
           .filter(
             (p) =>
@@ -556,13 +557,17 @@ export async function scan(
 
     const readMain = (async () => {
       const urls = pickBundleUrls(mainScripts, page);
-      return urls.length ? collectBundles(urls, page, fetchOptions) : [];
+      return urls.length
+        ? collectBundles(urls, page, fetchOptions, deps.data.bundleSignatures)
+        : [];
     })();
     const readApps = Promise.all(
       appLinks.map(async (link) => {
         const linked = await collectPageScripts(link, fetchOptions);
         const urls = linked ? pickBundleUrls(linked.scripts, linked.finalUrl) : [];
-        return linked && urls.length ? collectBundles(urls, linked.finalUrl, fetchOptions) : [];
+        return linked && urls.length
+          ? collectBundles(urls, linked.finalUrl, fetchOptions, deps.data.bundleSignatures)
+          : [];
       }),
     );
     const scans = await settle(
@@ -598,6 +603,30 @@ export async function scan(
           via: "bundle",
           confidence: 100,
         });
+      }
+    }
+
+    // Integration code signatures: one hint per technology, from the first page that shows it.
+    const signed = new Set(packages.map((p) => p.technology));
+
+    for (const scan of scans) {
+      for (const sig of scan.signatures) {
+        if (signed.has(sig.technology)) continue;
+        signed.add(sig.technology);
+
+        const name = techNameFor(sig.technology, deps);
+        const host = new URL(scan.page).hostname;
+        const from = host === pageHost ? "" : ` (${host})`;
+
+        if (name) {
+          hints.push({
+            name,
+            field: "code",
+            match: `${sig.label}${from}`,
+            via: "bundle",
+            confidence: 80,
+          });
+        }
       }
     }
 

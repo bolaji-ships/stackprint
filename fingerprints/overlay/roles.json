@@ -228,6 +228,9 @@
     ],
     "categories": [
       32
+    ],
+    "exclude": [
+      "Branch"
     ]
   },
   "ad_pixels": {
@@ -267,7 +270,8 @@
       "TikTok Pixel",
       "Snap Pixel",
       "PixelYourSite",
-      "Quora Pixel"
+      "Quora Pixel",
+      "Branch"
     ]
   },
   "chat_widget": {

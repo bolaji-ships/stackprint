@@ -199,3 +199,45 @@ export function pickAppLinks(
     .slice(0, limit)
     .map((e) => e.url);
 }
+
+export interface RawBundleSignature {
+  technology: string;
+  /** Plain substring checked before the regex, for speed on multi-megabyte bundles. */
+  needle: string;
+  pattern: string;
+  /** What the evidence shows; never the raw match (it can hold account keys). */
+  label: string;
+}
+
+export interface BundleSignature {
+  technology: string;
+  needle: string;
+  pattern: RegExp;
+  label: string;
+}
+
+export interface SignatureMatch {
+  technology: string;
+  label: string;
+}
+
+export function compileSignatures(raw: RawBundleSignature[]): BundleSignature[] {
+  return raw.map((s) => ({ ...s, pattern: new RegExp(s.pattern) }));
+}
+
+/** Integration signatures present in a bundle, one per technology. */
+export function matchSignatures(text: string, signatures: BundleSignature[]): SignatureMatch[] {
+  const out: SignatureMatch[] = [];
+  const seen = new Set<string>();
+
+  for (const sig of signatures) {
+    if (seen.has(sig.technology) || !text.includes(sig.needle)) continue;
+
+    if (sig.pattern.test(text)) {
+      seen.add(sig.technology);
+      out.push({ technology: sig.technology, label: sig.label });
+    }
+  }
+
+  return out;
+}

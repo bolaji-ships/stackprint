@@ -2,7 +2,13 @@
 /** Small extra fetches: robots.txt, public GTM containers (cached) and first-party JS bundles. */
 
 import { parse as parseDomain } from "tldts";
-import { type BundleManifest, extractManifests } from "../../core/extract/bundle.js";
+import {
+  type BundleManifest,
+  type BundleSignature,
+  extractManifests,
+  matchSignatures,
+  type SignatureMatch,
+} from "../../core/extract/bundle.js";
 import { type GtmContainer, parseGtmContainer } from "../../core/extract/gtm.js";
 import { extractHtml } from "../../core/extract/html.js";
 import { loadHtml } from "../dom/cheerio-adapter.js";
@@ -89,6 +95,7 @@ export interface BundleScan {
   bytes: number;
   truncated: boolean;
   manifests: BundleManifest[];
+  signatures: SignatureMatch[];
 }
 
 /** Bundler output paths that are first-party even on a separate asset host. */
@@ -158,6 +165,7 @@ export async function collectBundles(
   urls: string[],
   page: string,
   options: FetchOptions = {},
+  signatures: BundleSignature[] = [],
 ): Promise<BundleScan[]> {
   const results = await Promise.all(
     urls.map(async (url): Promise<BundleScan | null> => {
@@ -177,6 +185,7 @@ export async function collectBundles(
           bytes: capture.bytes,
           truncated: capture.truncated,
           manifests: extractManifests(capture.body),
+          signatures: matchSignatures(capture.body, signatures),
         };
       } catch {
         return null;

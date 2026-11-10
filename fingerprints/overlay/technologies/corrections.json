@@ -22,5 +22,20 @@
     "scriptSrc": [
       "(?:^|/)require(?:[.-][\\d.]+)?(?:\\.min)?\\.js(?:[?#]|$)"
     ]
+  },
+  "Freshchat": {
+    "_why": "Upstream only knows wchat.freshchat.com and the Freshbots global. Current installs load the widget from the account's own host (<account>.freshchat.com/js/widget.js) and expose window.fcWidget (seen on app.risevest.com, 2026-11-10).",
+    "scriptSrc": [
+      "[\\w-]+\\.freshchat\\.com/js/widget\\.js"
+    ],
+    "js": {
+      "fcWidget": ""
+    }
+  },
+  "MetaMap": {
+    "_why": "Upstream only knows sdk.getmati.com (the old Mati brand). The current web SDK loads from web-button.metamap.com (seen on app.risevest.com, 2026-11-10).",
+    "scriptSrc": [
+      "web-button\\.metamap\\.com/"
+    ]
   }
 }

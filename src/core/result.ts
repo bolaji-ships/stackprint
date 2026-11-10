@@ -211,6 +211,8 @@ export interface ScanDetails {
     bytes: number;
     truncated: boolean;
     manifests: { name: string | null; dependencies: number }[];
+    /** Integration code signatures found in the bundle (technology + what matched). */
+    signatures: { technology: string; label: string }[];
     packages: { package: string; version: string; technology: string }[];
   }[];
   bot_wall: BotWall | null;

@@ -1,0 +1,17 @@
+{
+  "_comment": "Financial infrastructure, missing upstream.",
+  "Bridge": {
+    "cats": [
+      41
+    ],
+    "website": "https://www.bridge.xyz",
+    "description": "Bridge provides stablecoin payment and account infrastructure through an API.",
+    "saas": true,
+    "pricing": [
+      "payg"
+    ],
+    "dom": [
+      "a[href*='bridge.xyz/legal/']"
+    ]
+  }
+}

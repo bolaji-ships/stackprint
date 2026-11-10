@@ -95,6 +95,8 @@ describe("overlay data integrity", () => {
     for (const n of raw.noise) if (!exists(n)) unknown.add(`noise: ${n}`);
     for (const [pkg, n] of Object.entries(raw.npmPackages ?? {}))
       if (!pkg.startsWith("_") && !exists(n)) unknown.add(`npm-packages: ${pkg} -> ${n}`);
+    for (const sig of raw.bundleSignatures ?? [])
+      if (!exists(sig.technology)) unknown.add(`bundle-signatures: ${sig.technology}`);
 
     expect([...unknown]).toEqual([]);
   });
