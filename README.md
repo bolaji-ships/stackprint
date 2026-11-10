@@ -98,6 +98,10 @@ stackprint lookup acme.com --deep
 
 Deep mode also loads the page in headless Chromium. It records every network request, runs the JS-global and DOM checks inside the page, reads cookies set by JavaScript, and clicks "accept" on about 15 common cookie banners so consent-gated tags can load. Deep scans take 5 to 10 seconds against about 2 in fast mode.
 
+Deep mode also reads the site's own JavaScript bundles (up to three, first-party only) for an embedded package manifest. Bundlers often ship the app's `package.json` dependencies inside the bundle, and that list is the app's declared stack: analytics, messaging, attribution and payment SDKs that only run after sign-in show up there (`@amplitude/analytics-react-native ^1.5.8` becomes Amplitude, `react-native-appsflyer` becomes AppsFlyer). Only dependency lists with 8 or more packages count, so a bundled library's own manifest is not mistaken for the app's, and only SaaS vendors are mapped (`fingerprints/overlay/npm-packages.json`), not general libraries. This evidence is marked `[bundle]`.
+
+When the page links to the company's product app on another subdomain (a "Log in" or "Get started" link from `risevest.com` to `app.risevest.com`), deep mode reads that app's bundles too, and the evidence names the host it came from: `npm: react-native-appsflyer ^6.17.1 (app.risevest.com)`. Only same-domain subdomains with an app signal count (blog, help, docs, careers and similar are skipped), at most two, and a link that redirects off the company's domain is dropped. The marketing site shows how a company acquires users; the app shows what it uses to activate and keep them. Reading bundles adds about 0.5 to 5 seconds, mostly downloading them (a 15 MB app bundle is the slow case).
+
 ## Output
 
 Every top-level value is a single value (string, number, boolean or null), so one JSONPath or one column mapping gets each field. Lists are joined with ", ". Missing is `null`, never "Unknown" or "N/A". Names are copy-ready ("Meta Pixel", not "Facebook Pixel").
@@ -110,7 +114,7 @@ Every top-level value is a single value (string, number, boolean or null), so on
 | Tracking IDs | `ga4_ids`, `gtm_ids`, `google_ads_ids`, `ua_ids`, `meta_pixel_ids`, `tiktok_pixel_ids`, `linkedin_partner_ids`, `hubspot_portal_ids`, `klaviyo_company_ids`, `hotjar_ids`, `clarity_ids`, `adsense_ids` |
 | Page | `page_title`, `meta_description`, `language`, `copyright_year`, `tech_count` |
 
-The full view (default) adds `technologies[]` (name, display name, version, confidence, categories, evidence) and `details` (redirects, TLS, DNS records, WordPress theme and plugins, JSON-LD types, GTM containers, bot wall, consent, timings, warnings).
+The full view (default) adds `technologies[]` (name, display name, version, confidence, categories, evidence) and `details` (redirects, TLS, DNS records, WordPress theme and plugins, JSON-LD types, GTM containers, bundles read and the packages matched in them, bot wall, consent, timings, warnings).
 
 `error_code` values: `INVALID_URL`, `BLOCKED_TARGET`, `SITE_NOT_FOUND`, `CONNECTION_FAILED`, `TIMEOUT`, `CLOUDFLARE_BLOCKED`, `BOT_BLOCKED`, `RATE_LIMITED`, `HTTP_ERROR`, `NO_CONTENT`. A finished lookup always returns HTTP 200, even when the target site fails: "no website" is data.
 
@@ -202,6 +206,7 @@ Railway works out of the box with the included `Dockerfile`, `railway.json` (hea
 ## What it cannot see
 
 - **Backend tools** such as Zapier, Make, n8n, Clay, Airtable or OpenAI's API leave no trace on a website. (A verified domain can still show up through DNS.)
+- **Tools behind a login** usually stay hidden, unless the app's bundle ships its package manifest (deep mode reads it). Most Next.js and Vite sites don't; Expo and some webpack apps do.
 - **Tags that wait for consent** stay invisible in fast mode. It tells you how many scripts are held back; deep mode clicks common consent banners.
 - **Versions** are often hidden: many hosts strip headers like `X-Powered-By`.
 - **Bot-protected sites** (Cloudflare, DataDome, Akamai...) may block automated requests. The result says so, with the DNS layer still filled in.

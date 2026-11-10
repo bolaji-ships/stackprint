@@ -4,6 +4,8 @@
  * The core never reads files: Node loads the JSON (src/node/data.ts); a browser bundle can import it.
  */
 
+import { type CompiledPackageMap, compilePackageMap } from "./extract/bundle.js";
+
 export type UrlType =
   | "website"
   | "free_subdomain"
@@ -51,6 +53,8 @@ export interface RawCoreData {
   noise: string[];
   gtmTemplates: Record<string, string>;
   aliases: Record<string, string>;
+  /** npm package name (or `prefix*`) -> technology, for manifests found in bundles. */
+  npmPackages?: Record<string, string>;
 }
 
 export interface HostRule {
@@ -78,6 +82,7 @@ export interface CoreData {
   noise: Set<string>;
   gtmTemplates: Record<string, string>;
   aliases: Record<string, string>;
+  npmPackages: CompiledPackageMap;
 }
 
 const TYPE_ORDER: Exclude<UrlType, "website">[] = [
@@ -131,6 +136,7 @@ export function compileCoreData(raw: RawCoreData): CoreData {
     noise: new Set(raw.noise),
     gtmTemplates: strip(raw.gtmTemplates),
     aliases: strip(raw.aliases),
+    npmPackages: compilePackageMap(strip(raw.npmPackages ?? {})),
   };
 }
 

@@ -16,6 +16,7 @@ import {
   detectParking,
   type Parking,
 } from "../core/extract/botwall.js";
+import { matchPackages, type PackageMatch, pickAppLinks } from "../core/extract/bundle.js";
 import type { GtmContainer } from "../core/extract/gtm.js";
 import { extractHtml, type HtmlExtract } from "../core/extract/html.js";
 import { emptyIds, extractIds, mergeIds, type TrackingIds } from "../core/extract/ids.js";
@@ -27,7 +28,14 @@ import type { Detection, Hint, Mode, SourcedValue } from "../core/types.js";
 import { collectBrowser } from "./collect/browser.js";
 import type { ConsentResult } from "./collect/consent.js";
 import { collectDns, type DnsCapture, dnsSignals } from "./collect/dns.js";
-import { collectGtm, collectRobots } from "./collect/extras.js";
+import {
+  type BundleScan,
+  collectBundles,
+  collectGtm,
+  collectPageScripts,
+  collectRobots,
+  pickBundleUrls,
+} from "./collect/extras.js";
 import { collectTls, type TlsCapture } from "./collect/tls.js";
 import { loadHtml } from "./dom/cheerio-adapter.js";
 import { type FetchErrorCode, fetchSite, type HttpCapture, type SiteFetch } from "./net/http.js";
@@ -141,6 +149,7 @@ export async function scan(
     tls?: TlsCapture | null;
     ids?: TrackingIds;
     gtm?: GtmContainer[];
+    bundles?: { scans: BundleScan[]; packages: (PackageMatch & { page: string })[] };
     botWall?: BotWall | null;
     parking?: Parking | null;
     consent?: ConsentResult | null;
@@ -226,6 +235,20 @@ export async function scan(
         version: c.version,
         templates: c.templates,
         parsed: c.parsed,
+      })),
+      bundles: (parts.bundles?.scans ?? []).map((b) => ({
+        page: b.page,
+        url: b.url,
+        bytes: b.bytes,
+        truncated: b.truncated,
+        manifests: b.manifests.map((m) => ({ name: m.name, dependencies: m.dependencies.length })),
+        packages: (parts.bundles?.packages ?? [])
+          .filter(
+            (p) =>
+              p.page === b.page &&
+              b.manifests.some((m) => m.dependencies.some((d) => d.name === p.package)),
+          )
+          .map(({ package: pkg, version, technology }) => ({ package: pkg, version, technology })),
       })),
       bot_wall: parts.botWall ?? null,
       parking: parts.parking ?? null,
@@ -519,6 +542,68 @@ export async function scan(
     }
   }
 
+  // Deep mode: the site's own bundles, and the product app it links to on a subdomain
+  // (risevest.com -> app.risevest.com), read for an embedded package manifest.
+  let bundles: { scans: BundleScan[]; packages: (PackageMatch & { page: string })[] } | undefined;
+
+  if (mode === "deep" && extract && !options.pageOnly) {
+    const page = capture.finalUrl;
+    const mainScripts = [
+      ...extract.scriptSrc.map((s) => s.value),
+      ...deepScriptSrc.map((s) => s.value),
+    ];
+    const appLinks = pickAppLinks(extract.otherHostLinks, page);
+
+    const readMain = (async () => {
+      const urls = pickBundleUrls(mainScripts, page);
+      return urls.length ? collectBundles(urls, page, fetchOptions) : [];
+    })();
+    const readApps = Promise.all(
+      appLinks.map(async (link) => {
+        const linked = await collectPageScripts(link, fetchOptions);
+        const urls = linked ? pickBundleUrls(linked.scripts, linked.finalUrl) : [];
+        return linked && urls.length ? collectBundles(urls, linked.finalUrl, fetchOptions) : [];
+      }),
+    );
+    const scans = await settle(
+      Promise.all([readMain, readApps]).then(([main, apps]) => [...main, ...apps.flat()]),
+      timings,
+      "bundles",
+    );
+
+    // One entry per package, the main site first; each remembers the page it came from.
+    const packages: (PackageMatch & { page: string })[] = [];
+    const seen = new Set<string>();
+
+    for (const scan of scans) {
+      for (const match of matchPackages(scan.manifests, deps.data.npmPackages)) {
+        if (seen.has(match.package)) continue;
+        seen.add(match.package);
+        packages.push({ ...match, page: scan.page });
+      }
+    }
+
+    const pageHost = new URL(page).hostname;
+
+    for (const p of packages) {
+      const name = techNameFor(p.technology, deps);
+      const host = new URL(p.page).hostname;
+      const from = host === pageHost ? "" : ` (${host})`;
+
+      if (name) {
+        hints.push({
+          name,
+          field: "npm",
+          match: `${p.package} ${p.version}${from}`,
+          via: "bundle",
+          confidence: 100,
+        });
+      }
+    }
+
+    bundles = { scans, packages };
+  }
+
   extractStarted = performance.now();
   const wordpress = extract
     ? extractWordPress(
@@ -588,6 +673,7 @@ export async function scan(
     tls,
     ids,
     gtm,
+    bundles,
     parking,
     consent: browser?.consent ?? null,
   });

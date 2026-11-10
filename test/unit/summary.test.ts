@@ -79,7 +79,7 @@ describe("overlay data integrity", () => {
   const data = loadCoreData();
   const exists = (n: string) => pack.byName.has(n);
 
-  it("roles, display names and GTM templates only name real technologies", () => {
+  it("roles, display names, GTM templates and npm packages only name real technologies", () => {
     const unknown = new Set<string>();
 
     for (const [role, spec] of Object.entries(data.roles)) {
@@ -93,6 +93,8 @@ describe("overlay data integrity", () => {
     for (const n of Object.values(data.gtmTemplates))
       if (!exists(n)) unknown.add(`gtm-templates: ${n}`);
     for (const n of raw.noise) if (!exists(n)) unknown.add(`noise: ${n}`);
+    for (const [pkg, n] of Object.entries(raw.npmPackages ?? {}))
+      if (!pkg.startsWith("_") && !exists(n)) unknown.add(`npm-packages: ${pkg} -> ${n}`);
 
     expect([...unknown]).toEqual([]);
   });

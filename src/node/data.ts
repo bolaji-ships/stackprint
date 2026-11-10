@@ -18,6 +18,7 @@ export function readRawCoreData(): RawCoreData {
     noise: readOverlay<{ names: string[] }>("noise.json").names,
     gtmTemplates: readOverlay("gtm-templates.json"),
     aliases: readOverlay("aliases.json"),
+    npmPackages: readOverlay("npm-packages.json"),
   };
 }
 

@@ -203,6 +203,16 @@ export interface ScanDetails {
   } | null;
   tracking_ids: TrackingIds;
   gtm: { id: string; version: string | null; templates: string[]; parsed: boolean }[];
+  /** Deep mode: first-party bundles read for an embedded package manifest. */
+  bundles: {
+    /** The page whose bundle this is: the scanned site, or the product app it links to. */
+    page: string;
+    url: string;
+    bytes: number;
+    truncated: boolean;
+    manifests: { name: string | null; dependencies: number }[];
+    packages: { package: string; version: string; technology: string }[];
+  }[];
   bot_wall: BotWall | null;
   parking: Parking | null;
   consent: { cmp: string | null; accepted: boolean } | null;

@@ -1,0 +1,18 @@
+{
+  "_comment": "Mobile app platforms, missing upstream. Their web traces are thin; most hits come from bundle manifests (npm-packages.json).",
+  "Expo": {
+    "cats": [
+      26,
+      12
+    ],
+    "website": "https://expo.dev",
+    "description": "Expo is a framework and platform for React Native apps, including their web builds.",
+    "oss": true,
+    "scriptSrc": [
+      "\\/_expo\\/static\\/js\\/"
+    ],
+    "implies": [
+      "React Native for Web"
+    ]
+  }
+}

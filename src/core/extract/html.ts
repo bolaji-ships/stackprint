@@ -40,6 +40,8 @@ export interface HtmlExtract {
   redirectHint: string | null;
   /** Scripts held back by a consent tool or a JS delay plugin. */
   heldScripts: number;
+  /** Links to other hosts (first 60), with their text: candidates for the product app on a subdomain. */
+  otherHostLinks: { url: string; text: string }[];
 }
 
 export const TEXT_LIMIT = 25_000;
@@ -309,6 +311,14 @@ export function extractHtml(doc: HtmlDocument, baseUrl: string): HtmlExtract {
   const whatsappLinks: string[] = [];
   let hasTelLink = false;
   const seenLinks = new Set<string>();
+  const otherHostLinks: { url: string; text: string }[] = [];
+  let baseHost = "";
+
+  try {
+    baseHost = new URL(baseUrl).hostname.toLowerCase();
+  } catch {
+    // keep empty: every link then counts as another host
+  }
 
   for (const node of all(doc, "a[href]").slice(0, ANCHOR_LIMIT)) {
     const raw = (node.attr("href") ?? "").trim();
@@ -330,6 +340,13 @@ export function extractHtml(doc: HtmlDocument, baseUrl: string): HtmlExtract {
       host = new URL(href).hostname.toLowerCase();
     } catch {
       continue;
+    }
+
+    if (host !== baseHost && /^https?:/i.test(href) && otherHostLinks.length < 60) {
+      otherHostLinks.push({
+        url: href,
+        text: node.text().replace(/\s+/g, " ").trim().slice(0, 60),
+      });
     }
 
     if (WHATSAPP_HOST.test(host)) {
@@ -403,5 +420,6 @@ export function extractHtml(doc: HtmlDocument, baseUrl: string): HtmlExtract {
     copyrightYear: copyrightYear(fullText),
     redirectHint,
     heldScripts,
+    otherHostLinks,
   };
 }

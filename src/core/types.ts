@@ -8,7 +8,16 @@
 export type Mode = "fast" | "deep";
 
 /** Where a signal came from. Used in evidence, and to cap confidence for detections seen only via GTM. */
-export type Via = "static" | "inline" | "gtm" | "dns" | "tls" | "robots" | "deep" | "implied";
+export type Via =
+  | "static"
+  | "inline"
+  | "gtm"
+  | "dns"
+  | "tls"
+  | "robots"
+  | "deep"
+  | "implied"
+  | "bundle";
 
 export type DnsType = "mx" | "txt" | "ns" | "soa" | "cname";
 
